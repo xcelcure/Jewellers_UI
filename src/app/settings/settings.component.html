@@ -1,0 +1,121 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">User Master</h4>
+
+        <div class="user-list">
+          <div class="card p-1 border px-2 mb-0" *ngFor="let user of userList">
+            <div class="d-flex d-flex1">
+              <div class="d-flex" style="gap: 16px">
+                <div class="icon">
+                  <span class="mdi mdi-account mdi-48px"></span>
+                </div>
+                <div class="name mt-2">
+                  <h5 class="text-primary">{{ user.user_name }}</h5>
+                  <p class="mb-0">{{ user.user_id }}</p>
+                  <!-- <p class="mb-0">{{ user.role == 0 ? "Admin" : "User" }}</p> -->
+                </div>
+              </div>
+              <div>
+                <button
+                  class="btn btn-secondary btn-sm"
+                  (click)="onDelete(user)"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-2">
+          <button class="btn btn-primary btn-sm" (click)="onAddUser(content)">
+            Add User
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Name</label> <span class="text-danger">*</span>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="emailHelp"
+          placeholder="Enter Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label> <span class="text-danger">*</span>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <span class="text-danger">*</span>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Roll">Roll</label> <span class="text-danger">*</span>
+        <select class="form-control" id="Roll" formControlName="role">
+          <option [value]="false">User</option>
+          <option [value]="true">Admin</option>
+        </select>
+      </div>
+
+      <div
+        class="form-group"
+        *ngIf="form.value.role == false || form.value.role == 'false'"
+      >
+        <label for="Roll1">Branch Name</label>
+        <span class="text-danger">*</span>
+        <select class="form-control" id="Roll1" formControlName="brCode">
+          <option value="">Select Branch</option>
+          <option
+            *ngFor="let branch of branchListViewModel.branchModelList"
+            [value]="branch.brcode"
+          >
+            {{ branch.branchName }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      [disabled]="!form.valid"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+    >
+      Add
+    </button>
+  </div>
+</ng-template>

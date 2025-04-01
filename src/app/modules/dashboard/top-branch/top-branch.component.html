@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Top Ten Branches</h4>
+    <h6 class="card-subtitle">
+      Month: {{month.length > 0 ? month : 'All'}}
+    </h6>
+    <div
+      class="table-responsive scrollable mt-3"
+      [perfectScrollbar]="config"
+      style="height: 350px"
+    >
+      <table class="table stylish-table v-middle mb-0">
+        <thead>
+          <tr>
+            <th colspan="2">Branch Name</th>
+            <th>Sales Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let branch of topSalesBranchModel">
+            <td style="width: 50px">
+              <div
+                class="text-white bg-primary"
+                style="padding: 14px; border-radius: 10px; text-align: center"
+              >
+                {{ branch.brcode }}
+              </div>
+            </td>
+            <td>
+              <h6 class="mb-0">{{ branch.branchName }}</h6>
+              <!-- <small class="text-muted">Web Designer</small> -->
+            </td>
+            <td>
+              <!-- <span class="badge badge-light-success text-success">Low</span> -->
+              {{ branch.totalSale | number: "1.2-2" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

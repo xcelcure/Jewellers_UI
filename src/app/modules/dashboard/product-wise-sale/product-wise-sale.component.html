@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex flex-wrap">
+      <div>
+        <h4 class="card-title">Top Sale Products</h4>
+        <h6 class="card-subtitle">
+          Branch: {{ branch.length > 0 ? branch : "All" }}, Month:
+          {{ month.length > 0 ? month : "All" }}
+        </h6>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <apx-chart
+            [series]="gold.series"
+            [chart]="gold.chart"
+            [dataLabels]="gold.dataLabels"
+            [plotOptions]="gold.plotOptions"
+            [xaxis]="gold.xaxis"
+            [colors]="gold.colors"
+          ></apx-chart>
+          <h6 class="text-center">
+            <b>Gold</b>
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <apx-chart
+            [series]="gem.series"
+            [chart]="gem.chart"
+            [dataLabels]="gem.dataLabels"
+            [plotOptions]="gem.plotOptions"
+            [xaxis]="gem.xaxis"
+            [colors]="gem.colors"
+          ></apx-chart>
+          <h6 class="text-center">
+            <b>Gems</b>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

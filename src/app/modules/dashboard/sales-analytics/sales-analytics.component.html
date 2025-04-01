@@ -1,0 +1,37 @@
+<div class="card bg-info">
+  <div class="card-body" style="height: 214px">
+    <div class="d-flex">
+      <div class="m-r-20 align-self-center">
+        <h1 class="text-white">
+          <i class="ti-light-bulb"></i>
+        </h1>
+      </div>
+      <div>
+        <h3 class="card-title text-white">Sales Analysis</h3>
+        <h6 class="card-subtitle text-white">
+          Branch: {{ branch.length > 0 ? branch : "All" }} Month:
+          {{ month.length > 0 ? month : "All" }}
+        </h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 align-self-center">
+        <h2 class="font-light text-white">
+          {{ TotalValue | number: "1.2-2" }}
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card" style="height: 13.5pc">
+  <div class="card-body">
+    <apx-chart
+      [series]="gold.series"
+      [chart]="gold.chart"
+      [dataLabels]="gold.dataLabels"
+      [plotOptions]="gold.plotOptions"
+      [xaxis]="gold.xaxis"
+      [colors]="gold.colors"
+    ></apx-chart>
+  </div>
+</div>

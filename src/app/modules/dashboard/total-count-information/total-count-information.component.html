@@ -1,0 +1,117 @@
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="m-b-0">
+            <!-- <i class="mdi mdi-briefcase-check text-info"></i> -->
+            <img
+              src="assets/images/icon/ingots.png"
+              style="height: 47px"
+              alt=""
+            />
+          </h2>
+          <h3 class="">{{ TotalGoldWeght | number: "1.2-2" }}</h3>
+          <h6 class="card-subtitle">
+            Gold sale in {{ month.length > 0 ? month : "all months" }} of
+            {{ branch.length > 0 ? branch : "all" }} branch
+          </h6>
+        </div>
+        <div class="col-12">
+          <ngb-progressbar
+            [showValue]="false"
+            type="info"
+            [value]="50"
+          ></ngb-progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <!-- Column -->
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="m-b-0">
+            <!-- <i class="mdi mdi-alert-circle text-success"></i> -->
+            <img
+              src="assets/images/icon/silver.png"
+              style="height: 47px"
+              alt=""
+            />
+          </h2>
+          <h3 class="">{{ TotalSilverWeght | number: "1.2-2" }}</h3>
+          <h6 class="card-subtitle">
+            Silver sale in {{ month.length > 0 ? month : "all months" }} of
+            {{ branch.length > 0 ? branch : "all" }} branch
+          </h6>
+        </div>
+        <div class="col-12">
+          <ngb-progressbar
+            [showValue]="false"
+            type="success"
+            [value]="50"
+          ></ngb-progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <!-- Column -->
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="m-b-0">
+            <!-- <i class="mdi mdi-wallet text-purple"></i> -->
+            <img
+              src="assets/images/icon/gems.png"
+              style="height: 28px"
+              alt=""
+            />
+          </h2>
+          <h3 class="">{{ TotalGemSaleCount | number: "1.2-2" }}</h3>
+          <h6 class="card-subtitle">
+            Gem sales in {{ month.length > 0 ? month : "all months" }} of
+            {{ branch.length > 0 ? branch : "all" }} branch
+          </h6>
+        </div>
+        <div class="col-12">
+          <ngb-progressbar
+            [showValue]="false"
+            type="primary"
+            [value]="50"
+          ></ngb-progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <!-- Column -->
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="m-b-0">
+            <i class="mdi mdi-buffer text-warning"></i>
+          </h2>
+          <h3 class="">{{ TotalValue | number: "1.2-2" }}</h3>
+          <h6 class="card-subtitle">
+            Total sales value in {{
+              month.length > 0 ? month : "all months"
+            }}
+            of {{ branch.length > 0 ? branch : "all" }} branch
+          </h6>
+        </div>
+        <div class="col-12">
+          <ngb-progressbar
+            [showValue]="false"
+            type="warning"
+            [value]="50"
+          ></ngb-progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

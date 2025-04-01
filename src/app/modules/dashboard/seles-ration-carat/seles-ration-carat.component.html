@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Purity Wise Gold Sales Ratio</h4>
+    <h6 class="card-subtitle">
+      Branch: {{ branch.length > 0 ? branch : "All" }}, Month:
+      {{ month.length > 0 ? month : "All" }}
+    </h6>
+    <div
+      style="
+        height: 353px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div id="chart">
+        <apx-chart
+          [series]="series"
+          [chart]="chartOptions.chart"
+          [labels]="labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

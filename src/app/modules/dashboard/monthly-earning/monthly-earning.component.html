@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex flex-wrap m-b-30">
+      <div>
+        <h4 class="card-title">Monthly Earning</h4>
+        <h6 class="card-subtitle">
+          Branch: {{ branch.length > 0 ? branch : "All" }}
+        </h6>
+      </div>
+      <div class="ml-auto">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <!-- <h6 class=" text-info">
+                <i class="fa fa-circle font-10 m-r-10"></i>Gold
+              </h6> -->
+          </li>
+          <li class="list-inline-item">
+            <!-- <h6 class="text-success">
+                <i class="fa fa-circle font-10 m-r-10"></i>Gems (k)
+              </h6> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="height: 345px">
+      <!-- <canvas
+          baseChart
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+        >
+        </canvas> -->
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions?.series"
+          [chart]="chartOptions?.chart"
+          [xaxis]="chartOptions?.xaxis"
+          [stroke]="chartOptions?.stroke"
+          [dataLabels]="chartOptions?.dataLabels"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

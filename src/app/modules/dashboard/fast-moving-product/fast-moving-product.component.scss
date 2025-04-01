@@ -1,0 +1,46 @@
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+    // background-color: #f5f5f5;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      padding: 20px;
+    }
+  }
+  .product-details {
+    flex: 4;
+    .product-name {
+    }
+  }
+}
+
+.sales {
+  display: flex;
+  // justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 128px;
+    background-color: #8080801c;
+    border-radius: 10px;
+  .sales-details {
+    flex: 4;
+    .sales-name {
+    }
+  }
+}
+.sales-count {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+}
+.sales-qty {
+    font-size: 20px;
+    color: blue;
+}
