@@ -66,17 +66,17 @@
                   <td>{{ maturity.memberName }}</td>
                   <td>{{ maturity.phoneNo }}</td>
                   <td>{{ maturity.instPaid }}</td>
-                  <td>{{ maturity.amount | currency:'INR' }}</td>
-                  <td>{{ maturity.accumGold | number:'1.3-3' }} gm</td>
-                  <td>{{ maturity.taxableAmt | currency:'INR' }}</td>
+                  <td class="text-right">{{ maturity.amount | number:'1.3-3' }}</td>
+                  <td class="text-right">{{ maturity.accumGold | number:'1.3-3' }} gm</td>
+                  <td class="text-right">{{ maturity.taxableAmt | number:'1.3-3'  }}</td>
                 </tr>
   
                 <!-- Total Row -->
                 <tr>
                   <td colspan="10" class="text-right"><b>Total:</b></td>
-                  <td><b>{{ GetTotalgrossWt.toFixed(3) | currency:'INR' }}</b></td>
-                  <td><b>{{ GetTotalgrossWt.toFixed(3) }} gm</b></td>
-                  <td><b>{{ GetTotalgemwt.toFixed(3) | currency:'INR' }}</b></td>
+                  <td class="text-right"><b>{{ GetTotalgrossWt.toFixed(3) }}</b></td>
+                  <td class="text-right"><b>{{ GetTotalgrossWt.toFixed(3) }} gm</b></td>
+                  <td class="text-right"><b>{{ GetTotalgemwt.toFixed(3) }}</b></td>
                 </tr>
               </tbody>
             </table>
@@ -178,17 +178,17 @@
             <td>{{ maturity.memberName }}</td>
             <td>{{ maturity.phoneNo }}</td>
             <td>{{ maturity.instPaid }}</td>
-            <td>{{ maturity.amount | currency:'INR' }}</td>
-            <td>{{ maturity.accumGold | number:'1.3-3' }} gm</td>
-            <td>{{ maturity.taxableAmt | currency:'INR' }}</td>
+            <td class="text-right">{{ maturity.amount | currency:'INR' }}</td>
+            <td class="text-right">{{ maturity.accumGold | number:'1.3-3' }} gm</td>
+            <td class="text-right">{{ maturity.taxableAmt | currency:'INR' }}</td>
           </tr>
 
           <!-- Total Row -->
           <tr class="font-weight-bold">
             <td colspan="10" class="text-right"><b>Total:</b></td>
-            <td><b>{{ GetTotalgrossWt.toFixed(3) | currency:'INR' }}</b></td>
-            <td><b>{{ GetTotalgrossWt.toFixed(3) }} gm</b></td>
-            <td><b>{{ GetTotalgemwt.toFixed(3) | currency:'INR' }}</b></td>
+            <td class="text-right"><b>{{ GetTotalgrossWt.toFixed(3) | currency:'INR' }}</b></td>
+            <td class="text-right"><b>{{ GetTotalgrossWt.toFixed(3) }} gm</b></td>
+            <td class="text-right"><b>{{ GetTotalgemwt.toFixed(3) | currency:'INR' }}</b></td>
           </tr>
         </tbody>
       </table>

@@ -113,10 +113,10 @@
          
                   <td>{{ customer.dob | date: 'dd/MM/yyyy' }}</td>
                   <td>{{ customer.doa | date: 'dd/MM/yyyy' }}</td>
-                  <td>{{ customer.product }}</td>
-                  <td>{{ customer.taxableAmt | number: '1.2-2' }}</td>
-                  <td>{{ customer.gstAmt | number: '1.2-2' }}</td>
-                  <td>{{ customer.amount | number: '1.2-2' }}</td>
+                  <td class="text-right">{{ customer.product }}</td>
+                  <td class="text-right">{{ customer.taxableAmt | number: '1.2-2' }}</td>
+                  <td class="text-right">{{ customer.gstAmt | number: '1.2-2' }}</td>
+                  <td class="text-right">{{ customer.amount | number: '1.2-2' }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -128,9 +128,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>{{ GetTotalAxisCCForView.toFixed(3) }}</td>
-                    <td>{{ GetTotalRate24KtForView.toFixed(3) }}</td>
-                    <td>{{ GetTotalRate22KForView.toFixed(3) }}</td>
+                    <td class="text-right">{{ GetTotalAxisCCForView.toFixed(3) }}</td>
+                    <td class="text-right">{{ GetTotalRate24KtForView.toFixed(3) }}</td>
+                    <td class="text-right">{{ GetTotalRate22KForView.toFixed(3) }}</td>
                   
                   </tr>
               </tbody>
@@ -263,9 +263,9 @@
           <td>{{ customer.product }}</td>
           <td>{{ customer.dob | date: 'dd/MM/yyyy' }}</td>
           <td>{{ customer.doa | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ customer.taxableAmt | number: '1.2-2' }}</td>
-          <td>{{ customer.gstAmt | number: '1.2-2' }}</td>
-          <td>{{ customer.amount | number: '1.2-2' }}</td>
+          <td class="text-right">{{ customer.taxableAmt | number: '1.2-2' }}</td>
+          <td class="text-right">{{ customer.gstAmt | number: '1.2-2' }}</td>
+          <td class="text-right">{{ customer.amount | number: '1.2-2' }}</td>
          
         </tr>
         <tr style="border: 1px black;">
@@ -278,9 +278,9 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>{{ GetTotalAxisCCForView.toFixed(3) }}</td>
-            <td>{{ GetTotalRate24KtForView.toFixed(3) }}</td>
-            <td>{{ GetTotalRate22KForView.toFixed(3) }}</td>
+            <td class="text-right">{{ GetTotalAxisCCForView.toFixed(3) }}</td>
+            <td class="text-right">{{ GetTotalRate24KtForView.toFixed(3) }}</td>
+            <td class="text-right">{{ GetTotalRate22KForView.toFixed(3) }}</td>
           
           </tr> 
         </tbody>

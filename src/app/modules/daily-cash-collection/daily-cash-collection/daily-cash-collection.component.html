@@ -106,21 +106,21 @@
         <td>{{ cash.saleDate | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
         <td>{{ cash.voucherType }}</td>
         <td>{{ cash.voucherNo }}</td>
-        <td>{{ cash.cash | number: '1.2-2' }}</td>
-        <td>{{ cash.card }}</td>
-        <td>{{ cash.rtgs_chq }}</td>
-        <td>{{ cash.upi | number: '1.2-2' }}</td>
-        <td>{{ cash.customer | number: '1.2-2' }}</td>
-        <td>{{ cash.totalAmount | number: '1.2-2' }}</td>
+        <td class="text-right">{{ cash.cash | number: '1.2-2' }}</td>
+        <td class="text-right">{{ cash.card }}</td>
+        <td class="text-right">{{ cash.rtgs_chq }}</td>
+        <td class="text-right">{{ cash.upi | number: '1.2-2' }}</td>
+        <td class="text-right">{{ cash.customer | number: '1.2-2' }}</td>
+        <td class="text-right">{{ cash.totalAmount | number: '1.2-2' }}</td>
       </tr>
       <tr>
         <td colspan="3"><b>Total</b></td>
-        <td>{{ GetTotalRate24KtForView | number: '1.2-2' }}</td>
-        <td>{{GetTotalCardForView | number: '1.2-2' }}</td>
-        <td>{{GetTotalcashForView | number: '1.2-2' }}</td>
-        <td>{{GetTotalupiView | number: '1.2-2' }}</td>
-        <td>{{GetTotalcustomerView| number: '1.2-2' }}</td>
-        <td>{{GetTotaltotalAmountView | number: '1.2-2' }}</td>
+        <td class="text-right">{{ GetTotalRate24KtForView | number: '1.2-2' }}</td>
+        <td class="text-right">{{GetTotalCardForView | number: '1.2-2' }}</td>
+        <td class="text-right">{{GetTotalcashForView | number: '1.2-2' }}</td>
+        <td class="text-right">{{GetTotalupiView | number: '1.2-2' }}</td>
+        <td class="text-right">{{GetTotalcustomerView| number: '1.2-2' }}</td>
+        <td class="text-right">{{GetTotaltotalAmountView | number: '1.2-2' }}</td>
       </tr>
     </tbody>
   </table>
@@ -245,21 +245,21 @@
             <td>{{ cash.saleDate | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
             <td>{{ cash.voucherType }}</td>
             <td>{{ cash.voucherNo }}</td>
-            <td>{{ cash.cash | number: '1.2-2' }}</td>
-            <td>{{ cash.card }}</td>
-            <td>{{ cash.rtgs_chq }}</td>
-            <td>{{ cash.upi | number: '1.2-2' }}</td>
-            <td>{{ cash.customer | number: '1.2-2' }}</td>
-            <td>{{ cash.totalAmount | number: '1.2-2' }}</td>
+            <td class="text-right">{{ cash.cash | number: '1.2-2' }}</td>
+            <td class="text-right">{{ cash.card }}</td>
+            <td class="text-right">{{ cash.rtgs_chq }}</td>
+            <td class="text-right">{{ cash.upi | number: '1.2-2' }}</td>
+            <td class="text-right">{{ cash.customer | number: '1.2-2' }}</td>
+            <td class="text-right">{{ cash.totalAmount | number: '1.2-2' }}</td>
           </tr>
           <tr>
             <td colspan="3"><b>Total</b></td>
-            <td>{{ GetTotalRate24KtForView | number: '1.2-2' }}</td>
-            <td>{{GetTotalCardForView | number: '1.2-2' }}</td>
-            <td>{{GetTotalcashForView | number: '1.2-2' }}</td>
-            <td>{{GetTotalupiView | number: '1.2-2' }}</td>
-            <td>{{GetTotalcustomerView| number: '1.2-2' }}</td>
-            <td>{{GetTotaltotalAmountView | number: '1.2-2' }}</td>
+            <td class="text-right">{{ GetTotalRate24KtForView | number: '1.2-2' }}</td>
+            <td class="text-right">{{GetTotalCardForView | number: '1.2-2' }}</td>
+            <td class="text-right">{{GetTotalcashForView | number: '1.2-2' }}</td>
+            <td class="text-right">{{GetTotalupiView | number: '1.2-2' }}</td>
+            <td class="text-right">{{GetTotalcustomerView| number: '1.2-2' }}</td>
+            <td class="text-right">{{GetTotaltotalAmountView | number: '1.2-2' }}</td>
           </tr>
         </tbody>
       </table>

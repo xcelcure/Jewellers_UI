@@ -87,40 +87,40 @@
                   <tr *ngFor="let stock of branchStockListViewModel.listStock">
                     <td>{{ stock.stockDate | date: 'dd/MM/yyyy' }}</td>
                     <td>{{ stock.brCode }}</td>
-                    <td>{{ stock.fG_24K }}</td>
-                    <td>{{ stock.fG_22K }}</td>
-                    <td>{{ stock.fG_18K }}</td>
-                    <td>{{ stock.oR_24K }}</td>
-                    <td>{{ stock.oR_22K }}</td>
-                    <td>{{ stock.oR_18K }}</td>
-                    <td>{{ stock.oR_0K }}</td>
-                    <td>{{ stock.fS_0K }}</td>
-                    <td>{{ stock.fS_925K }}</td>
-                    <td>{{ stock.fS_85K }}</td>
-                    <td>{{ stock.fS_70K }}</td>
-                    <td>{{ stock.rS_0K }}</td>
+                    <td class="text-right">{{ stock.fG_24K }}</td>
+                    <td class="text-right">{{ stock.fG_22K }}</td>
+                    <td class="text-right">{{ stock.fG_18K }}</td>
+                    <td class="text-right">{{ stock.oR_24K }}</td>
+                    <td class="text-right">{{ stock.oR_22K }}</td>
+                    <td class="text-right">{{ stock.oR_18K }}</td>
+                    <td class="text-right">{{ stock.oR_0K }}</td>
+                    <td class="text-right">{{ stock.fS_0K }}</td>
+                    <td class="text-right">{{ stock.fS_925K }}</td>
+                    <td class="text-right">{{ stock.fS_85K }}</td>
+                    <td class="text-right">{{ stock.fS_70K }}</td>
+                    <td class="text-right">{{ stock.rS_0K }}</td>
                   </tr>
                   <tr>
                     <td colspan="2">
                       <b>Total</b>
                     </td>
-                    <td>{{GetTotalfG_24KForView.toFixed(3)}}</td>
-                    <td>{{GetTotalfG_22KKForView.toFixed(3)}}</td>
-                   <td>{{ GetTotalfG_18KKForView.toFixed(3) }}</td>
+                    <td class="text-right">{{GetTotalfG_24KForView.toFixed(3)}}</td>
+                    <td class="text-right">{{GetTotalfG_22KKForView.toFixed(3)}}</td>
+                   <td class="text-right">{{ GetTotalfG_18KKForView.toFixed(3) }}</td>
       
-                   <td>{{GetTotaloR_24KForView.toFixed(3)}}</td>
-                   <td>{{GetTotaloR_22KForView.toFixed(3)}}</td>
-                  <td>{{GetTotaloR_18KForView.toFixed(3) }}</td>
+                   <td class="text-right">{{GetTotaloR_24KForView.toFixed(3)}}</td>
+                   <td class="text-right">{{GetTotaloR_22KForView.toFixed(3)}}</td>
+                  <td class="text-right">{{GetTotaloR_18KForView.toFixed(3) }}</td>
                   
       
-                  <td>{{GetTotaloR_0KForView.toFixed(3)}}</td>
-                   <td>{{GetTotalfS_0KForView.toFixed(3)}}</td>
-                  <td>{{GetTotalfS_925KForView.toFixed(3) }}</td>
+                  <td class="text-right">{{GetTotaloR_0KForView.toFixed(3)}}</td>
+                   <td class="text-right">{{GetTotalfS_0KForView.toFixed(3)}}</td>
+                  <td class="text-right">{{GetTotalfS_925KForView.toFixed(3) }}</td>
       
                   
-                  <td>{{GetTotalfS_85KForView.toFixed(3)}}</td>
-                   <td>{{GetTotalfS_70KForView.toFixed(3)}}</td>
-                  <td>{{GetTotalrS_0KForView.toFixed(3) }}</td>
+                  <td class="text-right">{{GetTotalfS_85KForView.toFixed(3)}}</td>
+                   <td class="text-right">{{GetTotalfS_70KForView.toFixed(3)}}</td>
+                  <td class="text-right">{{GetTotalrS_0KForView.toFixed(3) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -248,40 +248,40 @@
             <tr *ngFor="let stock of branchStockListViewModel.listStock">
               <td>{{ stock.stockDate | date: 'dd/MM/yyyy' }}</td>
               <td>{{ stock.brCode }}</td>
-              <td>{{ stock.fG_24K }}</td>
-              <td>{{ stock.fG_22K }}</td>
-              <td>{{ stock.fG_18K }}</td>
-              <td>{{ stock.oR_24K }}</td>
-              <td>{{ stock.oR_22K }}</td>
-              <td>{{ stock.oR_18K }}</td>
-              <td>{{ stock.oR_0K }}</td>
-              <td>{{ stock.fS_0K }}</td>
-              <td>{{ stock.fS_925K }}</td>
-              <td>{{ stock.fS_85K }}</td>
-              <td>{{ stock.fS_70K }}</td>
-              <td>{{ stock.rS_0K }}</td>
+              <td class="text-right">{{ stock.fG_24K }}</td>
+              <td class="text-right">{{ stock.fG_22K }}</td>
+              <td class="text-right">{{ stock.fG_18K }}</td>
+              <td class="text-right">{{ stock.oR_24K }}</td>
+              <td class="text-right">{{ stock.oR_22K }}</td>
+              <td class="text-right">{{ stock.oR_18K }}</td>
+              <td class="text-right">{{ stock.oR_0K }}</td>
+              <td class="text-right">{{ stock.fS_0K }}</td>
+              <td class="text-right">{{ stock.fS_925K }}</td>
+              <td class="text-right">{{ stock.fS_85K }}</td>
+              <td class="text-right">{{ stock.fS_70K }}</td>
+              <td class="text-right">{{ stock.rS_0K }}</td>
             </tr>
             <tr>
               <td colspan="2">
                 <b>Total</b>
               </td>
-              <td>{{GetTotalfG_24KForView.toFixed(3)}}</td>
-              <td>{{GetTotalfG_22KKForView.toFixed(3)}}</td>
-             <td>{{ GetTotalfG_18KKForView.toFixed(3) }}</td>
+              <td class="text-right">{{GetTotalfG_24KForView.toFixed(3)}}</td>
+              <td class="text-right">{{GetTotalfG_22KKForView.toFixed(3)}}</td>
+             <td class="text-right">{{ GetTotalfG_18KKForView.toFixed(3) }}</td>
 
-             <td>{{GetTotaloR_24KForView.toFixed(3)}}</td>
-             <td>{{GetTotaloR_22KForView.toFixed(3)}}</td>
-            <td>{{GetTotaloR_18KForView.toFixed(3) }}</td>
+             <td class="text-right">{{GetTotaloR_24KForView.toFixed(3)}}</td>
+             <td class="text-right">{{GetTotaloR_22KForView.toFixed(3)}}</td>
+            <td class="text-right">{{GetTotaloR_18KForView.toFixed(3) }}</td>
             
 
-            <td>{{GetTotaloR_0KForView.toFixed(3)}}</td>
-             <td>{{GetTotalfS_0KForView.toFixed(3)}}</td>
-            <td>{{GetTotalfS_925KForView.toFixed(3) }}</td>
+            <td class="text-right">{{GetTotaloR_0KForView.toFixed(3)}}</td>
+             <td class="text-right">{{GetTotalfS_0KForView.toFixed(3)}}</td>
+            <td class="text-right">{{GetTotalfS_925KForView.toFixed(3) }}</td>
 
             
-            <td>{{GetTotalfS_85KForView.toFixed(3)}}</td>
-             <td>{{GetTotalfS_70KForView.toFixed(3)}}</td>
-            <td>{{GetTotalrS_0KForView.toFixed(3) }}</td>
+            <td class="text-right">{{GetTotalfS_85KForView.toFixed(3)}}</td>
+             <td class="text-right">{{GetTotalfS_70KForView.toFixed(3)}}</td>
+            <td class="text-right">{{GetTotalrS_0KForView.toFixed(3) }}</td>
             </tr>
           </tbody>
         </table>
