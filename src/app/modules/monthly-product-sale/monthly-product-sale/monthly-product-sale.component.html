@@ -107,19 +107,19 @@
                     <td>{{ product.custName }}</td>
                     <td>{{ product.phoneNo }}</td>
                     <td>{{ product.description }}</td>
-                    <td>{{ product.grossWt | number: '1.2-2' }}</td>
-                    <td>{{ product.netWt | number: '1.2-2' }}</td>
-                    <td>{{ product.gemwt | number: '1.2-2' }}</td>
-                    <td>{{ product.taxableValue | number: '1.2-2' }}</td>
+                    <td class="text-right">{{ product.grossWt | number: '1.2-2' }}</td>
+                    <td class="text-right">{{ product.netWt | number: '1.2-2' }}</td>
+                    <td class="text-right">{{ product.gemwt | number: '1.2-2' }}</td>
+                    <td class="text-right">{{ product.taxableValue | number: '1.2-2' }}</td>
                   </tr>
                   <tr>
                     <td colspan="5">
                       <b>Total</b>
                     </td>
-                   <td>{{ GetTotalgrossWt.toFixed(3) }}</td> 
-                   <td>{{ GetTotalnetWt.toFixed(3) }}</td> 
-                   <td>{{ GetTotalgemwt.toFixed(3) }}</td> 
-                   <td>{{ GetTotaltaxableValue.toFixed(3) }}</td> 
+                   <td class="text-right">{{ GetTotalgrossWt.toFixed(3) }}</td> 
+                   <td class="text-right">{{ GetTotalnetWt.toFixed(3) }}</td> 
+                   <td class="text-right">{{ GetTotalgemwt.toFixed(3) }}</td> 
+                   <td class="text-right">{{ GetTotaltaxableValue.toFixed(3) }}</td> 
                   </tr>
                 </tbody>
               </table>
@@ -246,19 +246,19 @@
         <td>{{ product.custName }}</td>
         <td>{{ product.phoneNo }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.grossWt | number: '1.2-2' }}</td>
-        <td>{{ product.netWt | number: '1.2-2' }}</td>
-        <td>{{ product.gemwt | number: '1.2-2' }}</td>
-        <td>{{ product.taxableValue | number: '1.2-2' }}</td>
+        <td class="text-right">{{ product.grossWt | number: '1.2-2' }}</td>
+        <td class="text-right">{{ product.netWt | number: '1.2-2' }}</td>
+        <td class="text-right">{{ product.gemwt | number: '1.2-2' }}</td>
+        <td class="text-right">{{ product.taxableValue | number: '1.2-2' }}</td>
       </tr>
       <tr>
         <td colspan="5">
           <b>Total</b>
         </td>
-       <td>{{ GetTotalgrossWt.toFixed(3) }}</td> 
-       <td>{{ GetTotalnetWt.toFixed(3) }}</td> 
-       <td>{{ GetTotalgemwt.toFixed(3) }}</td> 
-       <td>{{ GetTotaltaxableValue.toFixed(3) }}</td> 
+       <td class="text-right">{{ GetTotalgrossWt.toFixed(3) }}</td> 
+       <td class="text-right">{{ GetTotalnetWt.toFixed(3) }}</td> 
+       <td class="text-right">{{ GetTotalgemwt.toFixed(3) }}</td> 
+       <td class="text-right">{{ GetTotaltaxableValue.toFixed(3) }}</td> 
       </tr>
     </tbody>
       </table>

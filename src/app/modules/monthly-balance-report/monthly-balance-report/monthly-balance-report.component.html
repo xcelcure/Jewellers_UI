@@ -94,64 +94,64 @@
                     <tbody>
                       <tr *ngFor="let balance of monthlyBalanceReportListViewModel.listMonthlyBalance">
                         <td>{{ balance.date | date: 'dd/MM/yyyy' }}</td>
-                        <td>{{ balance.oP_Bullion }}</td>
-                        <td>{{ balance.oP_OG }}</td>
-                        <td>{{ balance.oP_OG24 }}</td>
-                        <td>{{ balance.oP_18K }}</td>
-                        <td>{{ balance.oP_22K }}</td>
-                        <td>{{ balance.oP_24K }}</td>
-                        <td>{{ balance.pur_Bullion }}</td>
-                        <td>{{ balance.puR_OG_0 }}</td>
-                        <td>{{ balance.puR_OG_18 }}</td>
-                        <td>{{ balance.puR_OG_22 }}</td>
-                        <td>{{ balance.puR_OG_24 }}</td>
-                        <td>{{ balance.issuE_Buliion }}</td>
-                        <td>{{ balance.issuE_OG_24 }}</td>
-                        <td>{{ balance.issuE_18K }}</td>
-                        <td>{{ balance.issuE_22K }}</td>
-                        <td>{{ balance.issuE_24K }}</td>
-                        <td>{{ balance.issuE_TO_SLG_OG }}</td>
-                        <td>{{ balance.issuE_TO_SLG_18K }}</td>
-                        <td>{{ balance.issuE_TO_SLG_22K }}</td>
-                        <td>{{ balance.issuE_TO_SLG_24K }}</td>
+                        <td class="text-right">{{ balance.oP_Bullion }}</td>
+                        <td class="text-right">{{ balance.oP_OG }}</td>
+                        <td class="text-right">{{ balance.oP_OG24 }}</td>
+                        <td class="text-right">{{ balance.oP_18K }}</td>
+                        <td class="text-right">{{ balance.oP_22K }}</td>
+                        <td class="text-right">{{ balance.oP_24K }}</td>
+                        <td class="text-right">{{ balance.pur_Bullion }}</td>
+                        <td class="text-right">{{ balance.puR_OG_0 }}</td>
+                        <td class="text-right">{{ balance.puR_OG_18 }}</td>
+                        <td class="text-right">{{ balance.puR_OG_22 }}</td>
+                        <td class="text-right">{{ balance.puR_OG_24 }}</td>
+                        <td class="text-right">{{ balance.issuE_Buliion }}</td>
+                        <td class="text-right">{{ balance.issuE_OG_24 }}</td>
+                        <td class="text-right">{{ balance.issuE_18K }}</td>
+                        <td class="text-right">{{ balance.issuE_22K }}</td>
+                        <td class="text-right">{{ balance.issuE_24K }}</td>
+                        <td class="text-right">{{ balance.issuE_TO_SLG_OG }}</td>
+                        <td class="text-right">{{ balance.issuE_TO_SLG_18K }}</td>
+                        <td class="text-right">{{ balance.issuE_TO_SLG_22K }}</td>
+                        <td class="text-right">{{ balance.issuE_TO_SLG_24K }}</td>
                       </tr>
                       <tr>
                         <td colspan="1">
                           <b>Total</b>
                         </td>
-                        <td>{{GetTotaloP_BullionForView.toFixed(3)}}</td>
-                        <td>{{GetTotaloP_OGForView.toFixed(3)}}</td>
-                       <td>{{ GetTotaloP_OG24ForView.toFixed(3) }}</td>
+                        <td class="text-right">{{GetTotaloP_BullionForView.toFixed(3)}}</td>
+                        <td class="text-right">{{GetTotaloP_OGForView.toFixed(3)}}</td>
+                       <td class="text-right">{{ GetTotaloP_OG24ForView.toFixed(3) }}</td>
           
-                       <td>{{GetTotaloP_18KForView.toFixed(3)}}</td>
-                       <td>{{GetTotaloP_22KForView.toFixed(3)}}</td>
-                      <td>{{GetTotaloP_24KForView.toFixed(3) }}</td>
+                       <td class="text-right">{{GetTotaloP_18KForView.toFixed(3)}}</td>
+                       <td class="text-right">{{GetTotaloP_22KForView.toFixed(3)}}</td>
+                      <td class="text-right">{{GetTotaloP_24KForView.toFixed(3) }}</td>
                       
           
-                      <td>{{GetTotalpur_BullionForView.toFixed(3)}}</td>
-                       <td>{{GetTotalpuR_OG_0ForView.toFixed(3)}}</td>
-                      <td>{{GetTotalpuR_OG_18ForView.toFixed(3) }}</td>
+                      <td class="text-right">{{GetTotalpur_BullionForView.toFixed(3)}}</td>
+                       <td class="text-right">{{GetTotalpuR_OG_0ForView.toFixed(3)}}</td>
+                      <td class="text-right">{{GetTotalpuR_OG_18ForView.toFixed(3) }}</td>
           
                       
-                      <td>{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
-                       <td>{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
-                      <td>{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
+                      <td class="text-right">{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
+                       <td class="text-right">{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
+                      <td class="text-right">{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
 
-                      <td>{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
-                      <td>{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
-                     <td>{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
+                      <td class="text-right">{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
+                      <td class="text-right">{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
+                     <td class="text-right">{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
 
                      
-                     <td>{{GetTotalissuE_OG_24ForView.toFixed(3)}}</td>
-                     <td>{{GetTotalissuE_18KForView.toFixed(3)}}</td>
-                    <td>{{GetTotalissuE_22KForView.toFixed(3) }}</td>
+                     <td class="text-right">{{GetTotalissuE_OG_24ForView.toFixed(3)}}</td>
+                     <td class="text-right">{{GetTotalissuE_18KForView.toFixed(3)}}</td>
+                    <td class="text-right">{{GetTotalissuE_22KForView.toFixed(3) }}</td>
 
                     <!-- <td>{{GetTotalissuE_24KForView.toFixed(3)}}</td>
                     <td>{{GetTotalissuE_TO_SLG_OGForView.toFixed(3)}}</td>
                    <td>{{GetTotalissuE_TO_SLG_18KForView.toFixed(3) }}</td> -->
 
-                   <td>{{GetTotalissuE_TO_SLG_22KForView.toFixed(3)}}</td>
-                   <td>{{GetTotalissuE_TO_SLG_24KForView.toFixed(3) }}</td>
+                   <td class="text-right">{{GetTotalissuE_TO_SLG_22KForView.toFixed(3)}}</td>
+                   <td class="text-right">{{GetTotalissuE_TO_SLG_24KForView.toFixed(3) }}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -287,64 +287,64 @@
           <tr *ngFor="let balance of monthlyBalanceReportListViewModel.listMonthlyBalance">
             <td>{{ balance.date | date: 'dd/MM/yyyy' }}</td>
             <td>{{ balance.oP_Bullion }}</td>
-            <td>{{ balance.oP_OG }}</td>
-            <td>{{ balance.oP_OG24 }}</td>
-            <td>{{ balance.oP_18K }}</td>
-            <td>{{ balance.oP_22K }}</td>
-            <td>{{ balance.oP_24K }}</td>
-            <td>{{ balance.pur_Bullion }}</td>
-            <td>{{ balance.puR_OG_0 }}</td>
-            <td>{{ balance.puR_OG_18 }}</td>
-            <td>{{ balance.puR_OG_22 }}</td>
-            <td>{{ balance.puR_OG_24 }}</td>
-            <td>{{ balance.issuE_Buliion }}</td>
-            <td>{{ balance.issuE_OG_24 }}</td>
-            <td>{{ balance.issuE_18K }}</td>
-            <td>{{ balance.issuE_22K }}</td>
-            <td>{{ balance.issuE_24K }}</td>
-            <td>{{ balance.issuE_TO_SLG_OG }}</td>
-            <td>{{ balance.issuE_TO_SLG_18K }}</td>
-            <td>{{ balance.issuE_TO_SLG_22K }}</td>
-            <td>{{ balance.issuE_TO_SLG_24K }}</td>
+            <td class="text-right">{{ balance.oP_OG }}</td>
+            <td class="text-right">{{ balance.oP_OG24 }}</td>
+            <td class="text-right">{{ balance.oP_18K }}</td>
+            <td class="text-right">{{ balance.oP_22K }}</td>
+            <td class="text-right">{{ balance.oP_24K }}</td>
+            <td class="text-right">{{ balance.pur_Bullion }}</td>
+            <td class="text-right">{{ balance.puR_OG_0 }}</td>
+            <td class="text-right">{{ balance.puR_OG_18 }}</td>
+            <td class="text-right">{{ balance.puR_OG_22 }}</td>
+            <td class="text-right">{{ balance.puR_OG_24 }}</td>
+            <td class="text-right">{{ balance.issuE_Buliion }}</td>
+            <td class="text-right">{{ balance.issuE_OG_24 }}</td>
+            <td class="text-right">{{ balance.issuE_18K }}</td>
+            <td class="text-right">{{ balance.issuE_22K }}</td>
+            <td class="text-right">{{ balance.issuE_24K }}</td>
+            <td class="text-right">{{ balance.issuE_TO_SLG_OG }}</td>
+            <td class="text-right">{{ balance.issuE_TO_SLG_18K }}</td>
+            <td class="text-right">{{ balance.issuE_TO_SLG_22K }}</td>
+            <td class="text-right">{{ balance.issuE_TO_SLG_24K }}</td>
           </tr>
 
           <tr>
             <td colspan="1">
               <b>Total</b>
             </td>
-            <td>{{GetTotaloP_BullionForView.toFixed(3)}}</td>
-            <td>{{GetTotaloP_OGForView.toFixed(3)}}</td>
-           <td>{{ GetTotaloP_OG24ForView.toFixed(3) }}</td>
+            <td class="text-right">{{GetTotaloP_BullionForView.toFixed(3)}}</td>
+            <td class="text-right">{{GetTotaloP_OGForView.toFixed(3)}}</td>
+           <td class="text-right">{{ GetTotaloP_OG24ForView.toFixed(3) }}</td>
 
-           <td>{{GetTotaloP_18KForView.toFixed(3)}}</td>
-           <td>{{GetTotaloP_22KForView.toFixed(3)}}</td>
-          <td>{{GetTotaloP_24KForView.toFixed(3) }}</td>
+           <td class="text-right">{{GetTotaloP_18KForView.toFixed(3)}}</td>
+           <td class="text-right">{{GetTotaloP_22KForView.toFixed(3)}}</td>
+          <td class="text-right">{{GetTotaloP_24KForView.toFixed(3) }}</td>
           
 
-          <td>{{GetTotalpur_BullionForView.toFixed(3)}}</td>
-           <td>{{GetTotalpuR_OG_0ForView.toFixed(3)}}</td>
-          <td>{{GetTotalpuR_OG_18ForView.toFixed(3) }}</td>
+          <td class="text-right">{{GetTotalpur_BullionForView.toFixed(3)}}</td>
+           <td class="text-right">{{GetTotalpuR_OG_0ForView.toFixed(3)}}</td>
+          <td class="text-right">{{GetTotalpuR_OG_18ForView.toFixed(3) }}</td>
 
           
-          <td>{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
-           <td>{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
-          <td>{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
+          <td class="text-right">{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
+           <td class="text-right">{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
+          <td class="text-right">{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
 
-          <td>{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
-          <td>{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
-         <td>{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
+          <td class="text-right">{{GetTotalpuR_OG_22ForView.toFixed(3)}}</td>
+          <td class="text-right">{{GetTotalpuR_OG_24ForView.toFixed(3)}}</td>
+         <td class="text-right">{{GetTotalissuE_BuliionForView.toFixed(3) }}</td>
 
          
-         <td>{{GetTotalissuE_OG_24ForView.toFixed(3)}}</td>
-         <td>{{GetTotalissuE_18KForView.toFixed(3)}}</td>
-        <td>{{GetTotalissuE_22KForView.toFixed(3) }}</td>
+         <td class="text-right">{{GetTotalissuE_OG_24ForView.toFixed(3)}}</td>
+         <td class="text-right">{{GetTotalissuE_18KForView.toFixed(3)}}</td>
+        <td class="text-right">{{GetTotalissuE_22KForView.toFixed(3) }}</td>
 
         <!-- <td>{{GetTotalissuE_24KForView.toFixed(3)}}</td>
         <td>{{GetTotalissuE_TO_SLG_OGForView.toFixed(3)}}</td>
        <td>{{GetTotalissuE_TO_SLG_18KForView.toFixed(3) }}</td> -->
 
-       <td>{{GetTotalissuE_TO_SLG_22KForView.toFixed(3)}}</td>
-       <td>{{GetTotalissuE_TO_SLG_24KForView.toFixed(3) }}</td>
+       <td class="text-right">{{GetTotalissuE_TO_SLG_22KForView.toFixed(3)}}</td>
+       <td class="text-right">{{GetTotalissuE_TO_SLG_24KForView.toFixed(3) }}</td>
           </tr>
         </tbody>
       </table>

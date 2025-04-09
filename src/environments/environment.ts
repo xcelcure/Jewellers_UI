@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: "http://167.71.235.248:8009/",
+  apiURL: "https://dashboard.mppjewellerscal.com:8009/",
   // apiURL: "http://localhost:5004/",
 };
 
