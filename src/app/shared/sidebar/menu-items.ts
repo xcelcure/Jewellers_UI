@@ -51,7 +51,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "/gemsalesreport",
-        title: "GemSale Report ",
+        title: "Gem Sale Report ",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
@@ -69,7 +69,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "/monthlyBalanceReport",
-        title: "MonthlyBalanceReport",
+        title: "Monthly Balance Report",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
@@ -78,7 +78,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "/dailyCashCollection",
-        title: "DailyCashCollectionReport",
+        title: "DailyCash Collection Report",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
@@ -87,7 +87,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "/monthlyProductSaleModule",
-        title: "MonthlyProductSaleReport",
+        title: "Monthly ProductSale Report",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
@@ -96,7 +96,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "/monthlySchemeMaturity",
-        title: "MonthlySchemeMaturityReport",
+        title: "Monthly SchemeMaturity Report",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,

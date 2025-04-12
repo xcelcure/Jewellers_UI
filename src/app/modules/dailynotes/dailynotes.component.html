@@ -36,7 +36,7 @@
             <div class="col-3">
               <div class="form-group">
                 <label for="fromdate"
-                  >From Date <span class="text-danger"> *</span></label
+                  >Date <span class="text-danger"> *</span></label
                 >
                 <input
                   type="date"
@@ -111,7 +111,7 @@
                   </td>
                   <td></td>
                   <td></td>
-                 <td class="text-right">{{ GetTotalAxisCCForView.toFixed(3) }}</td>
+                 <td class="text-right">{{ GetTotalAxisCCForView.toFixed(2) }}</td>
                 
                 
                 </tr>
@@ -140,7 +140,7 @@
                     ? gemStockListViewModel.pageNumber * recordPerPage
                     : (gemStockListViewModel.pageNumber - 1) *
                         recordPerPage +
-                      gemStockListViewModel.listGemStock.length
+                        gemStockListViewModel.listGemStock.length
                 }}
                 of {{ gemStockListViewModel.totalrecords }}</small
               >
@@ -148,7 +148,7 @@
                 class="col-form-label pr-0"
                 style="font-size: 12px"
                 *ngIf="
-                  gemStockListViewModel.listGemStock && recordPerPage <= 0
+                gemStockListViewModel.listGemStock && recordPerPage <= 0
                 "
                 >Records: 1 to {{ gemStockListViewModel.totalrecords }}
               </small>
@@ -245,7 +245,7 @@
                   <td></td>
                   <td></td>
                  
-                 <td class="text-right">{{ GetTotalAxisCCForView.toFixed(3) }}</td>
+                 <td class="text-right">{{ GetTotalAxisCCForView.toFixed(2) }}</td>
                 
                 
                 </tr>
