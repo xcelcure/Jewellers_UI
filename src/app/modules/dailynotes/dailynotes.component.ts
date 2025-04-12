@@ -62,7 +62,7 @@ export class DailynotesComponent implements OnInit {
     public starterService: StarterService,
     private dashboardService: DashboardService,
   ) {
-    this.subtitle = "GemStock Report";
+    this.subtitle = "Gem Stock Report";
   }
   ngOnInit() {
     const date = new Date(),
