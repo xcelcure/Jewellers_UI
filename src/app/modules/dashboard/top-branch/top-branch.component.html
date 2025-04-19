@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Top Ten Branches</h4>
+    <h4 class="card-title">Top Sales Branches</h4>
     <h6 class="card-subtitle">
       Month: {{month.length > 0 ? month : 'All'}}
     </h6>
@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let branch of topSalesBranchModel">
+          <tr *ngFor="let branch of TblDashboard?.tblSaleAnalysis">
             <td style="width: 50px">
               <div
                 class="text-white bg-primary"
@@ -32,7 +32,7 @@
             </td>
             <td>
               <!-- <span class="badge badge-light-success text-success">Low</span> -->
-              {{ branch.totalSale | number: "1.2-2" }}
+              {{ total  | number: "1.2-2" }}
             </td>
           </tr>
         </tbody>

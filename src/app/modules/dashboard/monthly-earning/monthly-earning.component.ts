@@ -10,6 +10,7 @@ import {
   ApexTooltip,
   ApexStroke,
 } from "ng-apexcharts";
+import { TblDashboardInput } from "../../starter/model/tblDashboard ";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -66,6 +67,7 @@ export class MonthlyEarningComponent implements OnInit {
   }
 
   private initializeLastFiveMonth(finyr: string, branch: string): void {
+    debugger
     const months: string[] = [];
     let month = 1;
     do {
@@ -75,8 +77,12 @@ export class MonthlyEarningComponent implements OnInit {
       months.push(getMonthName(date.getMonth()));
       month++;
     } while (month <= 5);
+   let  tblDashboardInput = new TblDashboardInput
+   tblDashboardInput.month = months.length > 0 ? months[0] : null,
+   tblDashboardInput.branch = branch.length > 0 ? this.branch : null,
+   tblDashboardInput.finyr =  finyr,
     this.dashboardService
-      .getSaleeAmount(months, finyr, branch)
+      .getdashborddata(tblDashboardInput)
       .subscribe((data) => {
         debugger;
         // set up list for gold
@@ -85,24 +91,24 @@ export class MonthlyEarningComponent implements OnInit {
         const silverAmounts: number[] = [];
         months.map((month) => {
           // for lolg
-          const fonund = data.goldSales.filter((i) => i.saleMonth == month);
+          const fonund = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
           if (fonund.length > 0) {
-            goldAmounts.push(fonund.reduce((a, b) => a + b.goldsale, 0));
+            goldAmounts.push(fonund.reduce((a, b) => a + b.card+b.cash+b.ddChq+b.gvoucher+b.upi, 0));
           } else {
             goldAmounts.push(0);
           }
           // gor gem
-          const fonund2 = data.gemSales.filter((i) => i.saleMonth == month);
+          const fonund2 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
           if (fonund2.length > 0) {
-            gemAmounts.push(fonund2.reduce((a, b) => a + b.gemsale, 0));
+            gemAmounts.push(fonund2.reduce((a, b) => a + b.card +b.card +b.ddChq + b.gvoucher +b.upi, 0));
           } else {
             gemAmounts.push(0);
           }
 
           // gor silver
-          const fonund3 = data.silverSales.filter((i) => i.saleMonth == month);
+          const fonund3 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
           if (fonund3.length > 0) {
-            silverAmounts.push(fonund3.reduce((a, b) => a + b.silversale, 0));
+            silverAmounts.push(fonund3.reduce((a, b) => a + b.cash+b.card+b.ddChq+b.ddChq+b.gvoucher+b.upi, 0));
           } else {
             silverAmounts.push(0);
           }
@@ -120,6 +126,7 @@ export class MonthlyEarningComponent implements OnInit {
           name: "Silver",
           data: silverAmounts,
         };
+        debugger
         this.initGraph(gold, gem, silver, months);
       });
   }
@@ -129,6 +136,7 @@ export class MonthlyEarningComponent implements OnInit {
   }
 
   initGraph(gold: any, gem: any, silver: any, month: any) {
+    debugger
     this.chartOptions = {
       series: [gold, gem, silver],
       chart: {

@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { GemCmModel } from "src/app/models/gem-cm.model";
 import { GoldCmModel } from "src/app/models/gold-cm.model";
 import { ChartOptions } from "../product-wise-sale/product-wise-sale.component";
+import { TblDashboard } from "../../starter/model/tblDashboard ";
 
 @Component({
   selector: "app-sales-analytics",
@@ -14,7 +15,7 @@ import { ChartOptions } from "../product-wise-sale/product-wise-sale.component";
   styleUrls: ["./sales-analytics.component.css"],
 })
 export class SalesAnalyticsComponent implements OnInit {
-  @Input() thisMonthSales: MonthlySaleBranchModel;
+  @Input() thisMonthSales: TblDashboard;
   @Output() dateChange = new EventEmitter<{ month: string; branch: string }>();
   @Input() month = "";
   @Input() branch = "";
@@ -152,22 +153,22 @@ export class SalesAnalyticsComponent implements OnInit {
 
   get TotalGoldWeght() {
     if (!this.thisMonthSales) return 0;
-    return this.thisMonthSales.goldSale.reduce(
-      (a, b) => a + b.totalGoldSale,
+    return this.thisMonthSales.tblGoldSale.reduce(
+      (a, b) => a + b.goldSale,
       0
     );
   }
   get TotalSilverWeght() {
     if (!this.thisMonthSales) return 0;
-    return this.thisMonthSales.silverSale.reduce(
-      (a, b) => a + b.totalSilverSale,
+    return this.thisMonthSales.tblSilverSale.reduce(
+      (a, b) => a + b.silverSale,
       0
     );
   }
 
   get TotalGemSaleCount() {
     if (!this.thisMonthSales) return 0;
-    return this.thisMonthSales.gemSale.reduce((a, b) => a + b.totalGemSale, 0);
+    return this.thisMonthSales.tblGemSale.reduce((a, b) => a + b.gemSale, 0);
   }
 
   onDateChange(event) {
