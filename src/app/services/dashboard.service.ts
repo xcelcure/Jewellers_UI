@@ -6,11 +6,14 @@ import { Injectable } from "@angular/core";
 import { GoldCmModel } from "./../models/gold-cm.model";
 import { ApiFiletr, ApiMonthFilter } from "./../models/api-filetr.model";
 import { environment } from "./../../environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { GemCmModel } from "../models/gem-cm.model";
 import { BehaviorSubject, Subject } from "rxjs";
 import { MonthlySaleBranchModel } from "../models/monthly-sale-branch.model";
-
+import { TblDashboardInput, TblDashboard } from "../modules/starter/model/tblDashboard ";
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 export const MONTHS_NAME = [
   "January",
   "February",
@@ -195,4 +198,10 @@ export class DashboardService {
       }[];
     }>(this.apiUrl + "api/MonthlyTopSales/GetAllFinyr");
   }
+
+
+   getdashborddata( tblDashboardInput: TblDashboardInput ) {
+     const url = this.apiUrl+"api/SalesReportContoller/GetDashboardData";
+     return this.http.post<TblDashboard>(url,tblDashboardInput,httpOptions);
+   }
 }

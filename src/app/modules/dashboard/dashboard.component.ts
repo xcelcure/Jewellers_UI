@@ -7,6 +7,7 @@ import { GemCmModel } from "./../../models/gem-cm.model";
 import { Component } from "@angular/core";
 import { DashboardService } from "src/app/services/dashboard.service";
 import { LoginService } from "src/app/authentication/login/service/login.service";
+import { TblDashboard, TblDashboardInput } from "../starter/model/tblDashboard ";
 
 @Component({
   templateUrl: "./dashboard.component.html",
@@ -14,7 +15,7 @@ import { LoginService } from "src/app/authentication/login/service/login.service
 })
 export class DashboardComponent {
   thisMonthSales = new GemGoldSilverView();
-
+  TblDashboard:TblDashboard;
   saleInfo: MonthlySaleBranchModel;
   startDate = new Date();
   endDate = new Date();
@@ -33,34 +34,66 @@ export class DashboardComponent {
     this.dashboardService.getAllBranchs();
   }
 
+  // ngOnInit() {
+  //   this.subscribe = this.dashboardService.dashBoardFilter$.subscribe(
+  //     (data) => {
+  //       this.branch = data.branch;
+  //       this.month = data.month;
+  //       this.finyr = data.finyr;
+  //       this.getThisMonthSales();
+  //       this.getdashborddata();
+  //     }
+  //   );
+  //   this.loginService.user$.subscribe((user) => {
+  //     this.currentUser = user;
+  //   });
+  // }
+
   ngOnInit() {
-    this.subscribe = this.dashboardService.dashBoardFilter$.subscribe(
-      (data) => {
-        this.branch = data.branch;
-        this.month = data.month;
-        this.finyr = data.finyr;
-        this.getThisMonthSales();
-      }
-    );
     this.loginService.user$.subscribe((user) => {
       this.currentUser = user;
+  
+      this.subscribe = this.dashboardService.dashBoardFilter$.subscribe(
+        (data) => {
+          this.branch = data.branch;
+          this.month = data.month;
+          this.finyr = data.finyr;
+  
+          // this.getThisMonthSales();
+          this.getdashborddata();
+        }
+      );
     });
   }
+  
 
-  getThisMonthSales() {
+  // getThisMonthSales() {
+  //   this.endDate.setHours(11, 59, 59, 0);
+  //   const filetr: ApiMonthFilter = {
+  //     saleMonth: this.month.length > 0 ? this.month : null,
+  //     brcode: this.branch.length > 0 ? this.branch : null,
+  //     finyr: this.finyr,
+  //   };
+  //   this.dashboardService
+  //     .getMonthWiseGemGoldSilverReport(filetr)
+  //     .subscribe((data) => {
+  //       this.saleInfo = data;
+  //     });
+  // }
+  getdashborddata() {
+    let tblDashboardInput=new TblDashboardInput()
     this.endDate.setHours(11, 59, 59, 0);
-    const filetr: ApiMonthFilter = {
-      saleMonth: this.month.length > 0 ? this.month : null,
-      brcode: this.branch.length > 0 ? this.branch : null,
-      finyr: this.finyr,
-    };
+  
+      tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
+      tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
+      tblDashboardInput.finyr = this.finyr,
+    
     this.dashboardService
-      .getMonthWiseGemGoldSilverReport(filetr)
+      .getdashborddata(tblDashboardInput)
       .subscribe((data) => {
-        this.saleInfo = data;
+        this.TblDashboard = data;
       });
   }
-
   // onDateChange(event) {
   //   this.dashboardService.dashBoardFilter$.next({
   //     month: event.month,

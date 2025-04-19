@@ -9,6 +9,7 @@ import {
   ApexChart,
 } from "ng-apexcharts";
 import { DashboardService } from "src/app/services/dashboard.service";
+import { TblDashboardInput } from "../../starter/model/tblDashboard ";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -74,15 +75,14 @@ export class SelesRationCaratComponent implements OnInit {
   }
 
   getThisMonthSales() {
-    const filetr: ApiMonthFilter = {
-      saleMonth: this.month.length > 0 ? this.month : null,
-      brcode: this.branch.length > 0 ? this.branch : null,
-      finyr: this.finyr,
-    };
-
-    this.dashboardService.getPurityWiseGoldValue(filetr).subscribe((res) => {
-      this.series = res.map((i) => i.totalAmount);
-      this.labels = res.map((i) => `${i.purity} Carat`);
+    debugger
+  let tblDashboardInput=new TblDashboardInput()
+    tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
+    tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
+    tblDashboardInput.finyr = this.finyr,
+    this.dashboardService.getdashborddata(tblDashboardInput).subscribe((res) => {
+      this.series = res.tblTopSaleProduct.map((i) => i.amount);
+      this.labels = res.tblTopSaleProduct.map((i) => `${i.purity} Carat`);
     });
   }
 
