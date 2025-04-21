@@ -102,7 +102,8 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let product of monthlyProductSaleListViewModel.listProduct">
-                    <td>{{ product.cmDate | date: 'dd/MM/yyyy' }}</td>
+                    <!-- <td>{{ product.cmDate | date: 'dd/MM/yyyy' }}</td> -->
+                    <td>{{ product.cmDate === '0001-01-01T00:00:00' || product.cmDate === '01/01/0001' ? 'NA' : (product.cmDate | date: 'dd/MM/yyyy') }}</td>
                     <td>{{ product.cmNo }}</td>
                     <td>{{ product.custName }}</td>
                     <td>{{ product.phoneNo }}</td>
@@ -241,7 +242,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of monthlyProductSaleListViewModel.listProduct">
-        <td>{{ product.cmDate | date: 'dd/MM/yyyy' }}</td>
+        <!-- <td>{{ product.cmDate | date: 'dd/MM/yyyy' }}</td> -->
+        <td>{{ product.cmDate === '0001-01-01T00:00:00' || product.cmDate === '01/01/0001' ? 'NA' : (product.cmDate | date: 'dd/MM/yyyy') }}</td>
         <td>{{ product.cmNo }}</td>
         <td>{{ product.custName }}</td>
         <td>{{ product.phoneNo }}</td>

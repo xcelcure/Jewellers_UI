@@ -59,7 +59,8 @@
                   <td>{{ maturity.finYr }}</td>
                   <td>{{ maturity.brcode }}</td>
                   <td>{{ maturity.cmNo.trim() }}</td>
-                  <td>{{ maturity.cmDate | date: 'dd/MM/yyyy' }}</td>
+                  <!-- <td>{{ maturity.cmDate | date: 'dd/MM/yyyy' }}</td> -->
+                  <td>{{ maturity.cmDate === '0001-01-01T00:00:00' || maturity.cmDate === '01/01/0001' ? 'NA' : (maturity.cmDate | date: 'dd/MM/yyyy') }}</td>
                   <td>{{ maturity.startDate | date: 'dd/MM/yyyy' }}</td>
                   <td>{{ maturity.maturityDate | date: 'dd/MM/yyyy' }}</td>
                   <td>{{ maturity.memberNo.trim() }}</td>
@@ -171,7 +172,8 @@
             <td>{{ maturity.finYr }}</td>
             <td>{{ maturity.brcode }}</td>
             <td>{{ maturity.cmNo.trim() }}</td>
-            <td>{{ maturity.cmDate | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ maturity.cmDate === '0001-01-01T00:00:00' || maturity.cmDate === '01/01/0001' ? 'NA' : (maturity.cmDate | date: 'dd/MM/yyyy') }}</td>
+            <!-- <td>{{ maturity.cmDate | date: 'dd/MM/yyyy' }}</td> -->
             <td>{{ maturity.startDate | date: 'dd/MM/yyyy' }}</td>
             <td>{{ maturity.maturityDate | date: 'dd/MM/yyyy' }}</td>
             <td>{{ maturity.memberNo.trim() }}</td>

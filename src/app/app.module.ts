@@ -25,6 +25,7 @@ import { PerfectScrollbarConfigInterface } from "ngx-perfect-scrollbar";
 // import { DailynotesComponent } from './dailynotes/dailynotes.component';
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 import { DateChangeComponent } from "./modules/dashboard/date-change/date-change.component";
+import { FrontPositionComponent } from './modules/front-position/front-position.component';
 // import { MonthlyProductSaleComponent } from './modules/monthly-product-sale/monthly-product-sale.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -44,7 +45,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BreadcrumbComponent,
     SidebarComponent,
     DateChangeComponent,
-    // MonthlyProductSaleComponent,
+   
   ],
   imports: [
     CommonModule,
