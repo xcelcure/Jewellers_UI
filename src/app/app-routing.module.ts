@@ -39,6 +39,22 @@ export const routes: Routes = [
             (m) => m.DailynotesModule
           ),
       },
+
+      {
+        path: "frontPosition",
+        loadChildren: () =>
+          import("./modules/front-position/front-position.module").then(
+            (m) => m.FrontPositionModule
+          ),
+      },
+      {
+        path: "cashBank",
+        loadChildren: () =>
+          import("./modules/cash-bank/cash-bank.module").then(
+            (m) => m.CashBankModule
+          ),
+      },
+
       {
         path: "branchStockReport",
         loadChildren: () =>
@@ -68,6 +84,21 @@ export const routes: Routes = [
           ),
       },
       
+      {
+        path: "oldGold",
+        loadChildren: () =>
+          import("./modules/old-glod/old-glod.module").then(
+            (m) => m.OldGlodModule
+          ),
+      },
+      
+      {
+        path: "metalBalance",
+        loadChildren: () =>
+          import("./modules/metal-balance/metal-balance.module").then(
+            (m) => m.MetalBalanceModule
+          ),
+      },
       {
         path: "monthlyProductSaleModule",
         loadChildren: () =>

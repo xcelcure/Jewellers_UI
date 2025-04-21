@@ -3,18 +3,18 @@ import { PaymentMondelView } from "./../../../models/payment-mode.model";
 import { DashboardService } from "src/app/services/dashboard.service";
 import { ApiFiletr, ApiMonthFilter } from "src/app/models/api-filetr.model";
 import { GemGoldSilverView } from "./../../../models/gem-gold-silver.view";
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { GemCmModel } from "src/app/models/gem-cm.model";
 import { GoldCmModel } from "src/app/models/gold-cm.model";
 import { ChartOptions } from "../product-wise-sale/product-wise-sale.component";
-import { TblDashboard } from "../../starter/model/tblDashboard ";
+import { TblDashboard, TblDashboardInput } from "../../starter/model/tblDashboard ";
 
 @Component({
   selector: "app-sales-analytics",
   templateUrl: "./sales-analytics.component.html",
   styleUrls: ["./sales-analytics.component.css"],
 })
-export class SalesAnalyticsComponent implements OnInit {
+export class SalesAnalyticsComponent implements  OnInit, OnChanges  {
   @Input() thisMonthSales: TblDashboard;
   @Output() dateChange = new EventEmitter<{ month: string; branch: string }>();
   @Input() month = "";
@@ -29,13 +29,23 @@ export class SalesAnalyticsComponent implements OnInit {
 
   thisMonth = new Date();
   paymentMondelView: {
-    brcode: string;
-    totalCash: number;
-    // totalGold: number;
-    voucher: number;
-    cardPayment: number;
-    chequePayment: number;
-    paymentUpI: number;
+    // brcode: string;
+    // totalCash: number;
+    // // totalGold: number;
+    // voucher: number;
+    // cardPayment: number;
+    // chequePayment: number;
+    // paymentUpI: number;
+    saleOfMonth?: string;
+    brcode?: string;
+    cash: number;
+    card: number;
+    ddChq: number;
+    oldGold: number;
+    gvoucher: number;
+    upi: number;
+    finyr?: string;
+    branchName:string;
   }[];
   startDate = new Date();
   endDate = new Date();
@@ -77,43 +87,48 @@ export class SalesAnalyticsComponent implements OnInit {
       this.branch = data.branch;
       this.month = data.month;
       this.finyr = data.finyr;
-      this.getThisMonthSales();
+      // this.getThisMonthSales();
+      // this.initGraph();
       debugger;
     });
   }
+
   get TotalUpi() {
-    return this.paymentMondelView.reduce((a, b) => a + b.paymentUpI, 0);
+    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.upi, 0);
   }
   // get TotalOldGold() {
   //   return this.paymentMondelView.reduce((a, b) => a + b.totalGold, 0);
   // }
   get TotalVoucher() {
-    return this.paymentMondelView.reduce((a, b) => a + b.voucher, 0);
+    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.gvoucher, 0);
   }
   get TotalCash() {
-    return this.paymentMondelView.reduce((a, b) => a + b.totalCash, 0);
+    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.cash, 0);
   }
   get TotalCheque() {
-    return this.paymentMondelView.reduce((a, b) => a + b.chequePayment, 0);
+    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.ddChq, 0);
   }
   get TotalCard() {
-    return this.paymentMondelView.reduce((a, b) => a + b.cardPayment, 0);
+    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.card, 0);
   }
 
-  getThisMonthSales() {
-    this.endDate.setHours(11, 59, 59, 0);
-    const filetr: ApiMonthFilter = {
-      brcode: this.branch.length > 0 ? this.branch : null,
-      saleMonth: this.month.length > 0 ? this.month : null,
-      finyr: this.finyr,
-    };
-    this.dashboardService.getPamentDetailsMode(filetr).subscribe((data) => {
-      this.paymentMondelView = data;
-      debugger;
-      this.initGraph();
-    });
+  // getThisMonthSales() {
+  //   this.endDate.setHours(11, 59, 59, 0);
+  //   let tblDashboardInput=new TblDashboardInput()
+  //     tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
+  //     tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
+  //     tblDashboardInput.finyr = this.finyr,
+  //   this.dashboardService.getdashborddata(tblDashboardInput).subscribe((data) => {
+  //     this.paymentMondelView = data.tblSaleAnalysis;
+  //     debugger;
+    
+  //   });
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['thisMonthSales'] && this.thisMonthSales.tblSaleAnalysis.length) {
+      this.initGraph(); // safely call only when data exists
+    }
   }
-
   initGraph() {
     this.gold = {
       series: [
@@ -175,6 +190,6 @@ export class SalesAnalyticsComponent implements OnInit {
     this.branch = event.branch;
     this.month = event.month;
     this.dateChange.emit(event);
-    this.getThisMonthSales();
+    // this.getThisMonthSales();
   }
 }

@@ -22,6 +22,7 @@ import {
   ApexGrid,
 } from "ng-apexcharts";
 import { DashboardService } from "src/app/services/dashboard.service";
+import { TblDashboardInput } from "../../starter/model/tblDashboard ";
 
 let primary_color = localStorage.getItem("primary_color") || "#7366ff";
 let secondary_color = localStorage.getItem("secondary_color") || "#f73164";
@@ -111,15 +112,14 @@ export class ProductWiseSaleComponent implements OnInit {
       (data) => {
         this.month = data.month;
         this.branch = data.branch;
-        const filetr: ApiMonthFilter = {
-          saleMonth: this.month.length > 0 ? this.month : null,
-          brcode: this.branch.length > 0 ? this.branch : null,
-          top: 6,
-          finyr: data.finyr,
-        };
-        this.dashboardService.getTopGemSale(filetr).subscribe((res) => {
-          let categories = res.map((i) => i.stk_Gem);
-          let values = res.map((i) => i.amount);
+         let tblDashboardInput=new TblDashboardInput()
+           tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
+           tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
+           tblDashboardInput.finyr = data.finyr,
+           this.dashboardService.getdashborddata(tblDashboardInput).subscribe((res) => {
+            let gemData = res.tblTopSaleProduct.filter(i => i.category === "Gem");
+          let categories = gemData.map((i) => i.stk_Gem);
+          let values = res.tblTopSaleProduct.map((i) => i.amount);
           // let count = res.map((i) => i.totalcount);
 
           this.gem = {
@@ -152,9 +152,10 @@ export class ProductWiseSaleComponent implements OnInit {
           };
         });
 
-        this.dashboardService.getTopGoldSale(filetr).subscribe((res) => {
-          let categories = res.map((i) => i.stk_Gem);
-          let values = res.map((i) => i.amount);
+        this.dashboardService.getdashborddata(tblDashboardInput).subscribe((res) => {
+          let goldData = res.tblTopSaleProduct.filter(i => i.category === "Gold");
+          let categories = goldData.map((i) => i.stk_Gem);
+          let values = res.tblTopSaleProduct.map((i) => i.amount);
           this.gold = {
             series: [
               {

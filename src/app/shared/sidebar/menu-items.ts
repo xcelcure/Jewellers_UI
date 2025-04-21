@@ -17,25 +17,17 @@ export const ROUTES: RouteInfo[] = [
 
     extralink: false,
     submenu: [
-      // {
-      //   path: '/sale-analytics/gold',
-      //   title: 'Gold Sale',
-      //   icon: 'mdi mdi-database',
-      //   class: '',
-      //   extralink: false,
-      //   submenu: []
-      // },
-      // {
-      //   path: '/sale-analytics/gem',
-      //   title: 'Gem Sale',
-      //   icon: 'mdi mdi-diamond',
-      //   class: '',
-      //   extralink: false,
-      //   submenu: []
-      // },
       {
-        path: "/starter",
-        title: "Daily Sales Report",
+        path: "/branchStockReport",
+        title: "Branch Stock Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: "/cashBank",
+        title: "Cash Bank",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
@@ -50,22 +42,52 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
       {
+        path: "/dailyCashCollection",
+        title: "Daily Cash Collection Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: null,
+        title: "Daliy Note Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: "/starter",
+        title: "Daily Sales Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: "/frontPosition",
+        title: "Front Position",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
         path: "/gemsalesreport",
         title: "Gem Sale Report ",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
         submenu: [],
-
       },
       {
-        path: "/branchStockReport",
-        title: "Branch Stock Report",
+        path: "/metalBalance",
+        title: "Metal Balance Report",
         icon: "mdi mdi-note-text",
         class: "",
         extralink: false,
         submenu: [],
-
       },
       {
         path: "/monthlyBalanceReport",
@@ -74,16 +96,6 @@ export const ROUTES: RouteInfo[] = [
         class: "",
         extralink: false,
         submenu: [],
-
-      },
-      {
-        path: "/dailyCashCollection",
-        title: "DailyCash Collection Report",
-        icon: "mdi mdi-note-text",
-        class: "",
-        extralink: false,
-        submenu: [],
-
       },
       {
         path: "/monthlyProductSaleModule",
@@ -92,7 +104,6 @@ export const ROUTES: RouteInfo[] = [
         class: "",
         extralink: false,
         submenu: [],
-
       },
       {
         path: "/monthlySchemeMaturity",
@@ -101,10 +112,42 @@ export const ROUTES: RouteInfo[] = [
         class: "",
         extralink: false,
         submenu: [],
-
       },
-      
+      {
+        path: "/oldGold",
+        title: "Old Gold Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+  
+      {
+        path: null,
+        title: "Smith Position Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: null,
+        title: " Stock Order Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      },
+      {
+        path: null,
+        title: " Sundry Creditors Report",
+        icon: "mdi mdi-note-text",
+        class: "",
+        extralink: false,
+        submenu: [],
+      }
     ]
+    
 
   },
   // {
