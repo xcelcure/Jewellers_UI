@@ -89,7 +89,6 @@ export class SalesAnalyticsComponent implements  OnInit, OnChanges  {
       this.finyr = data.finyr;
       // this.getThisMonthSales();
       // this.initGraph();
-      debugger;
     });
   }
 

@@ -58,6 +58,7 @@ export class SelesRationCaratComponent implements OnInit {
   finyr = "";
 
   subscribe: Subscription;
+  subscribe1: Subscription;
   ngOnInit() {
     this.subscribe = this.dashboardService.dashBoardFilter$.subscribe(
       (data) => {
@@ -69,13 +70,27 @@ export class SelesRationCaratComponent implements OnInit {
           saleMonth: data.month.length > 0 ? this.month : null,
           top: 10,
         };
-        this.getThisMonthSales();
+        // this.getThisMonthSales();
       }
     );
+    this.subscribe1 = this.dashboardService.dashbordDataData$.subscribe(res=> {
+      // group the purity
+      //TODO
+      const groupedData = Array.from(new Set(res.tblTopSaleProduct.filter(x=> x.purity >0).map(x=>x.purity))).map(purity=>{
+        const total  = res.tblTopSaleProduct.filter(c=>c.purity == purity).reduce((a,b)=> a +b.amount, 0);
+        return {
+          amount: total,
+          purity
+        }
+      })
+
+      this.series = groupedData.map((i) => i.amount);
+      this.labels = groupedData.map((i) => `${i.purity} Carat`);
+    })
   }
 
+  // not used;
   getThisMonthSales() {
-    debugger
   let tblDashboardInput=new TblDashboardInput()
     tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
     tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
@@ -88,5 +103,6 @@ export class SelesRationCaratComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscribe && this.subscribe.unsubscribe();
+    this.subscribe1 && this.subscribe1.unsubscribe();
   }
 }

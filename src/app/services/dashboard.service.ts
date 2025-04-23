@@ -48,10 +48,13 @@ export class DashboardService {
     finyr?: string;
   }>();
 
+  dashbordDataData$ = new Subject<TblDashboard>();
+
   constructor(
     private http: HttpClient,
     private dailynotesService: DailynotesService
-  ) {}
+  ) {
+  }
 
   getGoldSales(filetr: ApiFiletr) {
     return this.http.post<GoldCmModel[]>(

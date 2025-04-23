@@ -79,7 +79,6 @@ export class MonthlySchemeMaturityComponent implements OnInit,AfterViewInit {
   
     submit() {
       console.log(this.form.value);
-      debugger
       const monthlySchemeMaturityViewModel = new MonthlySchemeMaturityViewModel();
       monthlySchemeMaturityViewModel.fromDate = new Date(this.form.value.fromdate);
       monthlySchemeMaturityViewModel.toDate = new Date(this.form.value.enddate);

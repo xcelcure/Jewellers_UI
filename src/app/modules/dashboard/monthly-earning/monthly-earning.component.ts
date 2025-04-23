@@ -62,29 +62,20 @@ export class MonthlyEarningComponent implements OnInit {
   ngOnInit() {
     this.dashboardService.dashBoardFilter$.subscribe((res) => {
       this.branch = res.branch;
-      this.initializeLastFiveMonth(res.finyr, res.branch);
+      //this.initializeLastFiveMonth(res.finyr, res.branch);
     });
-  }
 
-  private initializeLastFiveMonth(finyr: string, branch: string): void {
-    debugger
-    const months: string[] = [];
-    let month = 1;
-    do {
-      const date = new Date();
-      date.setMonth(date.getMonth() - month);
-      // this.lineChartLabels.push(getMonthName(date));
-      months.push(getMonthName(date.getMonth()));
-      month++;
-    } while (month <= 5);
-   let  tblDashboardInput = new TblDashboardInput
-   tblDashboardInput.month = months.length > 0 ? months[0] : null,
-   tblDashboardInput.branch = branch.length > 0 ? this.branch : null,
-   tblDashboardInput.finyr =  finyr,
-    this.dashboardService
-      .getdashborddata(tblDashboardInput)
-      .subscribe((data) => {
-        debugger;
+    this.dashboardService.dashbordDataData$.subscribe(data=> {
+      const months: string[] = [];
+      let month = 1;
+      do {
+        const date = new Date();
+        date.setMonth(date.getMonth() - month);
+        // this.lineChartLabels.push(getMonthName(date));
+        months.push(getMonthName(date.getMonth()));
+        month++;
+      } while (month <= 5);
+
         // set up list for gold
         const goldAmounts: number[] = [];
         const gemAmounts: number[] = [];
@@ -126,7 +117,69 @@ export class MonthlyEarningComponent implements OnInit {
           name: "Silver",
           data: silverAmounts,
         };
-        debugger
+        this.initGraph(gold, gem, silver, months);
+    })
+  }
+
+  //not used this function
+  private initializeLastFiveMonth(finyr: string, branch: string): void {
+    const months: string[] = [];
+    let month = 1;
+    do {
+      const date = new Date();
+      date.setMonth(date.getMonth() - month);
+      // this.lineChartLabels.push(getMonthName(date));
+      months.push(getMonthName(date.getMonth()));
+      month++;
+    } while (month <= 5);
+   let  tblDashboardInput = new TblDashboardInput
+   tblDashboardInput.month = months.length > 0 ? months[0] : null,
+   tblDashboardInput.branch = branch.length > 0 ? this.branch : null,
+   tblDashboardInput.finyr =  finyr,
+    this.dashboardService
+      .getdashborddata(tblDashboardInput)
+      .subscribe((data) => {
+        // set up list for gold
+        const goldAmounts: number[] = [];
+        const gemAmounts: number[] = [];
+        const silverAmounts: number[] = [];
+        months.map((month) => {
+          // for lolg
+          const fonund = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          if (fonund.length > 0) {
+            goldAmounts.push(fonund.reduce((a, b) => a + b.card+b.cash+b.ddChq+b.gvoucher+b.upi, 0));
+          } else {
+            goldAmounts.push(0);
+          }
+          // gor gem
+          const fonund2 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          if (fonund2.length > 0) {
+            gemAmounts.push(fonund2.reduce((a, b) => a + b.card +b.card +b.ddChq + b.gvoucher +b.upi, 0));
+          } else {
+            gemAmounts.push(0);
+          }
+
+          // gor silver
+          const fonund3 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          if (fonund3.length > 0) {
+            silverAmounts.push(fonund3.reduce((a, b) => a + b.cash+b.card+b.ddChq+b.ddChq+b.gvoucher+b.upi, 0));
+          } else {
+            silverAmounts.push(0);
+          }
+        });
+
+        const gold = {
+          name: "Gold",
+          data: goldAmounts,
+        };
+        const gem = {
+          name: "Gem",
+          data: gemAmounts,
+        };
+        const silver = {
+          name: "Silver",
+          data: silverAmounts,
+        };
         this.initGraph(gold, gem, silver, months);
       });
   }
@@ -136,7 +189,6 @@ export class MonthlyEarningComponent implements OnInit {
   }
 
   initGraph(gold: any, gem: any, silver: any, month: any) {
-    debugger
     this.chartOptions = {
       series: [gold, gem, silver],
       chart: {

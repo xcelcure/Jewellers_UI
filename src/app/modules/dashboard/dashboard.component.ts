@@ -24,6 +24,7 @@ export class DashboardComponent {
   finyr = "";
   subscribe: Subscription;
   currentUser: any;
+
   constructor(
     private dashboardService: DashboardService,
     private loginService: LoginService
@@ -92,6 +93,7 @@ export class DashboardComponent {
       .getdashborddata(tblDashboardInput)
       .subscribe((data) => {
         this.TblDashboard = data;
+        this.dashboardService.dashbordDataData$.next(data);
       });
   }
   // onDateChange(event) {

@@ -124,7 +124,6 @@ export class MonthlyBalanceReportComponent implements OnInit {
 
   submit() {
     console.log(this.form.value);
-debugger
     const dailyNoteVM = new MonthlyBalanceReportViewModel();
     dailyNoteVM.toDate = new Date(this.form.value.enddate);
     dailyNoteVM.finyr = this.form.value.finyr;
@@ -139,7 +138,6 @@ debugger
 
 
   getAllDailyNotesforPrint() {
-    debugger
     const dailyNoteVM = new MonthlyBalanceReportViewModel();
     dailyNoteVM.toDate = new Date(this.form.value.enddate);
     dailyNoteVM.finyr = this.form.value.finyr;

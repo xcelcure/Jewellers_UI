@@ -105,6 +105,7 @@ export class ProductWiseSaleComponent implements OnInit {
   month = "";
   branch = "";
   subscribe: Subscription;
+  subscribe1: Subscription;
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
@@ -112,80 +113,91 @@ export class ProductWiseSaleComponent implements OnInit {
       (data) => {
         this.month = data.month;
         this.branch = data.branch;
-         let tblDashboardInput=new TblDashboardInput()
-           tblDashboardInput.month  = this.month.length > 0 ? this.month : null,
-           tblDashboardInput.branch = this.branch.length > 0 ? this.branch : null,
-           tblDashboardInput.finyr = data.finyr,
-           this.dashboardService.getdashborddata(tblDashboardInput).subscribe((res) => {
-            let gemData = res.tblTopSaleProduct.filter(i => i.category === "Gem");
-          let categories = gemData.map((i) => i.stk_Gem);
-          let values = res.tblTopSaleProduct.map((i) => i.amount);
-          // let count = res.map((i) => i.totalcount);
-
-          this.gem = {
-            series: [
-              {
-                name: "Sales Value",
-                data: values,
-              },
-            ],
-            colors: [secondary_color],
-            chart: {
-              type: "bar",
-              height: 350,
-            },
-            plotOptions: {
-              bar: {
-                horizontal: true,
-              },
-            },
-            dataLabels: {
-              enabled: false,
-            },
-            xaxis: {
-              categories: categories,
-            },
-            title: {
-              text: "string",
-              align: "left",
-            },
-          };
-        });
-
-        this.dashboardService.getdashborddata(tblDashboardInput).subscribe((res) => {
-          let goldData = res.tblTopSaleProduct.filter(i => i.category === "Gold");
-          let categories = goldData.map((i) => i.stk_Gem);
-          let values = res.tblTopSaleProduct.map((i) => i.amount);
-          this.gold = {
-            series: [
-              {
-                name: "Sales Value",
-                data: values,
-              },
-            ],
-            colors: [primary_color],
-            chart: {
-              type: "bar",
-              height: 350,
-            },
-            plotOptions: {
-              bar: {
-                horizontal: true,
-              },
-            },
-            dataLabels: {
-              enabled: false,
-            },
-            xaxis: {
-              categories: categories,
-            },
-          };
-        });
+        
       }
     );
+
+    this.subscribe1 = this.dashboardService.dashbordDataData$.subscribe(res=> {
+    // gems
+    
+    debugger;
+      let gemData = res.tblTopSaleProduct.filter(
+        (i) => i.category === "Gem"
+      );
+      gemData = gemData.sort((a,b)=>b.amount- a.amount ).filter((_, ind)=> ind < 10);
+      let categories = gemData.map((i) => i.stk_Gem);
+      let values = gemData.map((i) => i.amount);
+      // let count = res.map((i) => i.totalcount);
+
+      this.gem = {
+        series: [
+          {
+            name: "Sales Value",
+            data: values,
+          },
+        ],
+        colors: [secondary_color],
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: categories,
+        },
+        title: {
+          text: "string",
+          align: "left",
+        },
+      };
+
+      // gold
+
+      debugger;
+
+      let goldData = res.tblTopSaleProduct.filter(
+        (i) => i.category === "Gold"
+      );
+      goldData = goldData.sort((a,b)=>b.amount- a.amount ).filter((_, ind)=> ind < 10);
+      let goldCategories = goldData.map((i) => i.stk_Gem);
+      let goldValues = goldData.map((i) => i.amount);
+      this.gold = {
+        series: [
+          {
+            name: "Sales Value",
+            data: goldValues,
+          },
+        ],
+        colors: [primary_color],
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: goldCategories,
+        },
+      };
+
+    })
   }
 
   ngOnDestroy(): void {
     this.subscribe && this.subscribe.unsubscribe();
+    this.subscribe1 && this.subscribe1.unsubscribe();
   }
 }

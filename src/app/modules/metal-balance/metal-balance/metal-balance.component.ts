@@ -120,7 +120,6 @@ ngAfterViewInit() {}
   
     submit() {
       console.log(this.form.value);
-  debugger
       const dailyNoteVM = new BranchStockViewModel();
       dailyNoteVM.toDate = new Date(this.form.value.enddate);
       dailyNoteVM.finyr = this.form.value.finyr;
@@ -135,7 +134,6 @@ ngAfterViewInit() {}
   
 
     getAllDailyNotesforPrint() {
-      debugger
       const dailyNoteVM = new BranchStockViewModel();
       dailyNoteVM.toDate = new Date(this.form.value.toDate);
       dailyNoteVM.finyr = this.form.value.finyr;
