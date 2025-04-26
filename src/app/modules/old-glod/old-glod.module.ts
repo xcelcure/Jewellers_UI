@@ -11,10 +11,10 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Front Position Report',
+      title: 'Old Gold Report',
       urls: [
         { title: 'Reports', url: '/' },
-        { title: 'Front Position Report' }
+        { title: 'Old Gold Report' }
       ]
     },
     component: OldGlodComponent
