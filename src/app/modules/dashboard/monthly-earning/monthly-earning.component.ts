@@ -64,7 +64,7 @@ export class MonthlyEarningComponent implements OnInit {
       this.branch = res.branch;
       //this.initializeLastFiveMonth(res.finyr, res.branch);
     });
-debugger
+
     this.dashboardService.dashbordDataData$.subscribe(data=> {
       const months: string[] = [];
       let month = 1;

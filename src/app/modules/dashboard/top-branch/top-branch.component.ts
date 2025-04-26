@@ -38,7 +38,7 @@ export class TopBranchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    debugger
+   
     this.subscribe = this.DashboardService.dashBoardFilter$.subscribe(
       (data) => {
         this.month = data.month;
@@ -68,22 +68,39 @@ export class TopBranchComponent implements OnInit, OnDestroy {
 
   }
 
-  get total(): number {
-    debugger
+  // get total(): number {
+
+  //   if (!this.TblDashboard.tblSaleAnalysi) return 0;
+
+  //   return this.TblDashboard.tblSaleAnalysi.reduce((sum, sale) => {
+  //     return (
+  //       sum +
+  //       (sale.cash || 0) +
+  //       (sale.card || 0) +
+  //       (sale.upi || 0) +
+  //       (sale.gvoucher || 0) +
+  //       (sale.ddChq || 0)
+  //     );
+  //   }, 0);
+  // }
+  getBranchTotal(branch: any): number {
     if (!this.TblDashboard.tblSaleAnalysi) return 0;
-
-    return this.TblDashboard.tblSaleAnalysi.reduce((sum, sale) => {
-      return (
-        sum +
-        (sale.cash || 0) +
-        (sale.card || 0) +
-        (sale.upi || 0) +
-        (sale.gvoucher || 0) +
-        (sale.ddChq || 0)
-      );
-    }, 0);
+  
+    return this.TblDashboard.tblSaleAnalysi
+      .filter(sale => sale.brcode == branch) // only matching branch
+      .reduce((sum, sale) => {
+        return (
+          sum +
+          (sale.cash || 0) +
+          (sale.card || 0) +
+          (sale.upi || 0) +
+          (sale.gvoucher || 0) +
+          (sale.ddChq || 0)
+        );
+      }, 0);
   }
-
+  
+  
   ngOnDestroy(): void {
     this.subscribe && this.subscribe.unsubscribe();
   }

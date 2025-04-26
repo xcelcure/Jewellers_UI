@@ -133,7 +133,7 @@ export class DailynotesComponent implements OnInit {
   }
 
   submit() {
-    debugger
+  
     console.log(this.form.value);
     const dailyNoteVM = new GemStockViewModel();
     if (this.form.value.branch == "") {
