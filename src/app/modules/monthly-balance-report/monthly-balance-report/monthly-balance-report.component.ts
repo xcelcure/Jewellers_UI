@@ -125,12 +125,19 @@ export class MonthlyBalanceReportComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     const dailyNoteVM = new MonthlyBalanceReportViewModel();
+    
+    if (this.form.value.branch == "" || this.form.value.branch == "null") {
+      dailyNoteVM.toDate = new Date(this.form.value.enddate);
+      dailyNoteVM.finyr = this.form.value.finyr;
+      dailyNoteVM.pageNumber = this.pageNumber;
+      dailyNoteVM.pageSize = this.recordPerPage;
+    } else {
     dailyNoteVM.toDate = new Date(this.form.value.enddate);
     dailyNoteVM.finyr = this.form.value.finyr;
     dailyNoteVM.branch = this.form.value.branch;
     dailyNoteVM.pageNumber = this.pageNumber;
     dailyNoteVM.pageSize = this.recordPerPage;
-    // dailyNoteVM.pageSize=10
+    }
     this.serviceService.getAllmonthlyBalanceReport(dailyNoteVM).subscribe((res) => {
       this.monthlyBalanceReportListViewModel = res;
     });
