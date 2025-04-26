@@ -120,7 +120,7 @@ export class ProductWiseSaleComponent implements OnInit {
     this.subscribe1 = this.dashboardService.dashbordDataData$.subscribe(res=> {
     // gems
     
-    debugger;
+  
       let gemData = res.tblTopSaleProduct.filter(
         (i) => i.category === "Gem"
       );
@@ -160,7 +160,6 @@ export class ProductWiseSaleComponent implements OnInit {
 
       // gold
 
-      debugger;
 
       let goldData = res.tblTopSaleProduct.filter(
         (i) => i.category === "Gold"

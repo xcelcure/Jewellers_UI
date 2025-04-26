@@ -101,7 +101,7 @@ export class MonthlyProductSaleComponent implements OnInit ,AfterViewInit {
   
     getAllSaleDataforPrint() {
       const salesReportViewModel = new MonthlyProductSaleViewModel();
-      debugger
+    
       if (this.form.value.branch == "null") {
         salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
         salesReportViewModel.toDate = new Date(this.form.value.enddate);

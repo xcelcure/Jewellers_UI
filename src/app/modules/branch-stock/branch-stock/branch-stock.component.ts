@@ -143,7 +143,7 @@ export class BranchStockComponent implements OnInit {
 
 
   getAllDailyNotesforPrint() {
-    debugger
+   
     const dailyNoteVM = new BranchStockViewModel();
     dailyNoteVM.toDate = new Date(this.form.value.toDate);
     dailyNoteVM.finyr = this.form.value.finyr;

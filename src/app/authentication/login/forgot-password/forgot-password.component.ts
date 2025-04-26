@@ -37,7 +37,6 @@ export class ForgotPasswordComponent implements OnInit {
       this.loginService
         .forGotPassword(this.loginForm.get("Username").value)
         .subscribe((res) => {
-          debugger;
           this.isMessageSuccess = !res.failure;
           this.errorMessage = res.message;
           this.isLoading = false;
