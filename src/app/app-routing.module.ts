@@ -4,6 +4,7 @@ import { BlankComponent } from "./layouts/blank/blank.component";
 import { FullComponent } from "./layouts/full/full.component";
 import { SettingGuard } from "./settings/setting.guard";
 
+
 export const routes: Routes = [
   {
     path: "",

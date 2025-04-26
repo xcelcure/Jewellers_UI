@@ -122,7 +122,7 @@ ngAfterViewInit() {}
       console.log(this.form.value);
   
       const dailyNoteVM = new BranchStockViewModel();
-      if (this.form.value.branch == "null") {
+      if (this.form.value.branch =="" || this.form.value.branch == "null") {
         dailyNoteVM.toDate = new Date(this.form.value.enddate);
       dailyNoteVM.finyr = this.form.value.finyr;
       dailyNoteVM.pageNumber = this.pageNumber;

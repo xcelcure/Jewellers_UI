@@ -38,7 +38,7 @@ export class MonthlyBalanceReportComponent implements OnInit {
   currentUser: any;
 
   form = new FormGroup({
-    branch: new FormControl(null, Validators.required),
+    branch: new FormControl(null),
     fromdate: new FormControl("", Validators.required),
     enddate: new FormControl("", Validators.required),
     finyr: new FormControl(this.finYear),

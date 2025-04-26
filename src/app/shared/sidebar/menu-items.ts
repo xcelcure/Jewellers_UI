@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
           },
           {
             path: "/monthlyProductSaleModule",
-            title: "ProductSale Report",
+            title: "Product Sale Report",
             icon: "mdi mdi-note-text",
             class: "",
             extralink: false,

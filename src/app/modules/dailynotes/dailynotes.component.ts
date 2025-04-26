@@ -76,7 +76,6 @@ export class DailynotesComponent implements OnInit {
       }
       this.currentUser = user;
     });
-
     this.getAllBranch();
     this.form
       .get("enddate")
@@ -136,7 +135,8 @@ export class DailynotesComponent implements OnInit {
   
     console.log(this.form.value);
     const dailyNoteVM = new GemStockViewModel();
-    if (this.form.value.branch == "") {
+    debugger
+    if (this.form.value.branch == "" || this.form.value.branch == "null") {
       dailyNoteVM.fromDate = new Date(this.form.value.fromdate);
       dailyNoteVM.finyr = this.form.value.finyr;
       dailyNoteVM.pageNumber = this.pageNumber;
