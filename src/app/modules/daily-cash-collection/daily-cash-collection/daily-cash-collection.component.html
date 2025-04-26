@@ -8,7 +8,7 @@
             </div>
           </div>
           <form [formGroup]="form" (ngSubmit)="submit()" id="form">
-            <div class="row mb-3">
+            <div class="row mb-0">
               <div class="col-3" *ngIf="currentUser.role == 'Admin'">
                 <div class="form-group">
                   <label for="branch">Branch </label>
@@ -83,6 +83,24 @@
             </div>
           </form>
           <div class="row">
+            <div class="col-12 text-right">
+              <button
+                class="btn btn-primary btn-sm rounded"
+                type="button"
+                (click)="onPrint()"
+              >
+                <i class="fas fa-print"></i> Print
+              </button>
+              <button
+                class="btn btn-primary btn-sm rounded"
+                type="button"
+                (click)="onDownload()"
+              >
+                <i class="fas fa-download"></i> Download
+              </button>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-12 table-responsive">
        
            <!-- daily-cash-collection.component.html -->
@@ -91,6 +109,7 @@
     <thead class="border-bottom">
       <tr>
         <th>Sale Date</th>
+        <th>Branch Code</th>
         <th>Voucher Type</th>
         <th>Voucher No</th>
         <th>Cash</th>
@@ -104,6 +123,7 @@
     <tbody>
       <tr *ngFor="let cash of dailyCashCollectionListViewModel.listDailyCash">
         <td>{{ cash.saleDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{cash.brCode}}</td>
         <td>{{ cash.voucherType }}</td>
         <td>{{ cash.voucherNo }}</td>
         <td class="text-right">{{ cash.cash | number: '1.2-2' }}</td>
@@ -198,24 +218,7 @@
             </div>
           </div> 
   
-          <div class="row">
-            <div class="col-12 text-right">
-              <button
-                class="btn btn-primary btn-sm rounded"
-                type="button"
-                (click)="onPrint()"
-              >
-                <i class="fas fa-print"></i> Print
-              </button>
-              <button
-                class="btn btn-primary btn-sm rounded"
-                type="button"
-                (click)="onDownload()"
-              >
-                <i class="fas fa-download"></i> Download
-              </button>
-            </div>
-          </div>
+      
         </div>
       </div>
     </div>
@@ -230,6 +233,7 @@
         <thead class="border-bottom">
           <tr>
             <th>Sale Date</th>
+            <th> Branch Code</th>
             <th>Voucher Type</th>
             <th>Voucher No</th>
             <th>Cash</th>
@@ -243,6 +247,7 @@
         <tbody>
           <tr *ngFor="let cash of dailyCashCollectionListViewModel.listDailyCash">
             <td>{{ cash.saleDate | date: 'dd/MM/yyyy' }}</td>
+            <td>{{cash.brCode}}</td>
             <td>{{ cash.voucherType }}</td>
             <td>{{ cash.voucherNo }}</td>
             <td class="text-right">{{ cash.cash | number: '1.2-2' }}</td>

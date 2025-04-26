@@ -9,7 +9,7 @@
             </div>
           </div>
           <form [formGroup]="form" (ngSubmit)="submit()" id="form">
-            <div class="row mb-3">
+            <div class="row mb-0">
               <div class="col-3" *ngIf="currentUser.role == 'Admin'">
                 <div class="form-group">
                   <label for="branch">Branch </label>
@@ -83,6 +83,24 @@
               </div>
             </div>
           </form>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button
+                class="btn btn-primary btn-sm rounded"
+                type="button"
+                (click)="onPrint()"
+              >
+                <i class="fas fa-print"></i> Print
+              </button>
+              <button
+                class="btn btn-primary btn-sm rounded"
+                type="button"
+                (click)="onDownload()"
+              >
+                <i class="fas fa-download"></i> Download
+              </button>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12 table-responsive">
               <table
@@ -225,24 +243,7 @@
             </div>
           </div>
   
-          <div class="row">
-            <div class="col-12 text-right">
-              <button
-                class="btn btn-primary btn-sm rounded"
-                type="button"
-                (click)="onPrint()"
-              >
-                <i class="fas fa-print"></i> Print
-              </button>
-              <button
-                class="btn btn-primary btn-sm rounded"
-                type="button"
-                (click)="onDownload()"
-              >
-                <i class="fas fa-download"></i> Download
-              </button>
-            </div>
-          </div>
+    
         </div>
       </div>
     </div>

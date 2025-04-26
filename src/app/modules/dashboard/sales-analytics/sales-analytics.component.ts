@@ -93,22 +93,28 @@ export class SalesAnalyticsComponent implements  OnInit, OnChanges  {
   }
 
   get TotalUpi() {
-    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.upi, 0);
+    return Array.isArray(this.thisMonthSales.tblSaleAnalysi)
+    ? this.thisMonthSales.tblSaleAnalysi.reduce((a, b) => a + b.upi, 0) : 0;
   }
   // get TotalOldGold() {
   //   return this.paymentMondelView.reduce((a, b) => a + b.totalGold, 0);
   // }
   get TotalVoucher() {
-    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.gvoucher, 0);
+     return Array.isArray(this.thisMonthSales.tblSaleAnalysi)
+    ? this.thisMonthSales.tblSaleAnalysi.reduce((a, b) => a + b.gvoucher, 0)
+    : 0;
   }
   get TotalCash() {
-    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.cash, 0);
+    return Array.isArray(this.thisMonthSales.tblSaleAnalysi)
+    ? this.thisMonthSales.tblSaleAnalysi.reduce((a, b) => a + b.cash, 0) : 0;
   }
   get TotalCheque() {
-    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.ddChq, 0);
+    return Array.isArray(this.thisMonthSales.tblSaleAnalysi)
+    ? this.thisMonthSales.tblSaleAnalysi.reduce((a, b) => a + b.ddChq, 0) :0;
   }
   get TotalCard() {
-    return this.thisMonthSales.tblSaleAnalysis.reduce((a, b) => a + b.card, 0);
+    return Array.isArray(this.thisMonthSales.tblSaleAnalysi)
+    ? this.thisMonthSales.tblSaleAnalysi.reduce((a, b) => a + b.card, 0) : 0;
   }
 
   // getThisMonthSales() {
@@ -124,9 +130,9 @@ export class SalesAnalyticsComponent implements  OnInit, OnChanges  {
   //   });
   
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['thisMonthSales'] && this.thisMonthSales.tblSaleAnalysis.length) {
+    
       this.initGraph(); // safely call only when data exists
-    }
+    
   }
   initGraph() {
     this.gold = {

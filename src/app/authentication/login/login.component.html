@@ -145,6 +145,34 @@
                 >
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">
+                      <i class="ti-pencil"></i>
+                    </span>
+                  </div>
+                
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control form-control-lg"
+                    placeholder="Password"
+                    aria-label="Password"
+                    aria-describedby="basic-addon1"
+                    formControlName="Password"
+                    (input)="onPasswordInput($event)"
+                  />
+                
+                  <div class="input-group-append">
+                    <span
+                      class="input-group-text"
+                      (click)="togglePassword()"
+                      style="cursor: pointer"
+                    >
+                      <i [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                    </span>
+                  </div>
+                </div>
+                
+                <!-- <div class="input-group mt-3">
+                  <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2"
                       ><i class="ti-pencil"></i
                     ></span>
@@ -157,7 +185,7 @@
                     aria-describedby="basic-addon1"
                     formControlName="Password"
                   />
-                </div>
+                </div> -->
                 <small
                   class="text-danger"
                   *ngIf="

@@ -79,14 +79,21 @@ export class MonthlyProductSaleComponent implements OnInit ,AfterViewInit {
   
     submit() {
       console.log(this.form.value);
-      debugger
+      
       const salesReportViewModel = new MonthlyProductSaleViewModel();
-      salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
-      salesReportViewModel.toDate = new Date(this.form.value.enddate);
-      salesReportViewModel.barCode = this.form.value.branch;
-      salesReportViewModel.pageNumber = this.pageNumber;
-      salesReportViewModel.pageSize = this.recordPerPage;
-  
+      
+      if (this.form.value.branch == "null") {
+        salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+        salesReportViewModel.toDate = new Date(this.form.value.enddate);
+        salesReportViewModel.pageNumber = this.pageNumber;
+        salesReportViewModel.pageSize = this.recordPerPage;
+      } else {
+        salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+        salesReportViewModel.toDate = new Date(this.form.value.enddate);
+        salesReportViewModel.barCode = this.form.value.branch;
+        salesReportViewModel.pageNumber = this.pageNumber;
+        salesReportViewModel.pageSize = this.recordPerPage;
+      }
       this.monthlyProductSaleService.getAllmonthlyProductSaleReport(salesReportViewModel).subscribe((res) => {
         this.monthlyProductSaleListViewModel = res;
       });
@@ -94,11 +101,19 @@ export class MonthlyProductSaleComponent implements OnInit ,AfterViewInit {
   
     getAllSaleDataforPrint() {
       const salesReportViewModel = new MonthlyProductSaleViewModel();
-      salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
-      salesReportViewModel.toDate = new Date(this.form.value.enddate);
-      salesReportViewModel.barCode = this.form.value.branch;
-      salesReportViewModel.pageNumber = this.pageNumber;
-      salesReportViewModel.pageSize = this.recordPerPage;
+      debugger
+      if (this.form.value.branch == "null") {
+        salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+        salesReportViewModel.toDate = new Date(this.form.value.enddate);
+        salesReportViewModel.pageNumber = this.pageNumber;
+        salesReportViewModel.pageSize = this.recordPerPage;
+      } else {
+        salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+        salesReportViewModel.toDate = new Date(this.form.value.enddate);
+        salesReportViewModel.barCode = this.form.value.branch;
+        salesReportViewModel.pageNumber = this.pageNumber;
+        salesReportViewModel.pageSize = this.recordPerPage;
+      }
   
       this.monthlyProductSaleService.getAllmonthlyProductSaleReport(salesReportViewModel).subscribe((res) => {
         this.monthlyProductSaleListViewModel = res;

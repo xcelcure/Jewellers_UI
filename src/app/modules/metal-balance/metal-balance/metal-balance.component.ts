@@ -35,7 +35,7 @@ ngAfterViewInit() {}
     currentUser: any;
   
     form = new FormGroup({
-      branch: new FormControl(null, Validators.required),
+      branch: new FormControl(null),
       fromdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required),
       finyr: new FormControl(this.finYear),
@@ -119,14 +119,21 @@ ngAfterViewInit() {}
     }
   
     submit() {
+
       console.log(this.form.value);
       const dailyNoteVM = new BranchStockViewModel();
+      if (this.form.value.branch == "") {
+        dailyNoteVM.toDate = new Date(this.form.value.enddate);
+        dailyNoteVM.finyr = this.form.value.finyr;
+        dailyNoteVM.pageNumber = this.pageNumber;
+        dailyNoteVM.pageSize = this.recordPerPage;
+      } else {
       dailyNoteVM.toDate = new Date(this.form.value.enddate);
       dailyNoteVM.finyr = this.form.value.finyr;
       dailyNoteVM.branch = this.form.value.branch;
       dailyNoteVM.pageNumber = this.pageNumber;
       dailyNoteVM.pageSize = this.recordPerPage;
-      // dailyNoteVM.pageSize=10
+      }
       this.btanchStockService.getAllbranchstock(dailyNoteVM).subscribe((res) => {
         this.branchStockListViewModel = res;
       });
@@ -135,12 +142,19 @@ ngAfterViewInit() {}
 
     getAllDailyNotesforPrint() {
       const dailyNoteVM = new BranchStockViewModel();
+      if (this.form.value.branch == "null") {
+        dailyNoteVM.fromDate = new Date(this.form.value.fromdate);
+        dailyNoteVM.toDate = new Date(this.form.value.enddate);
+        dailyNoteVM.pageNumber = this.pageNumber;
+        dailyNoteVM.pageSize = this.recordPerPage;
+      } else{
       dailyNoteVM.toDate = new Date(this.form.value.toDate);
       dailyNoteVM.finyr = this.form.value.finyr;
       dailyNoteVM.branch = this.form.value.branch;
-      dailyNoteVM.pageNumber = this.pageNumber;
+      dailyNoteVM.pageNumber = this.recordPerPage;
       // dailyNoteVM.pageSize = this.recordPerPage;
       dailyNoteVM.pageSize=10
+      }
       this.btanchStockService.getAllbranchstock(dailyNoteVM).subscribe((res) => {
         this.branchStockListViewModel = res;
       });

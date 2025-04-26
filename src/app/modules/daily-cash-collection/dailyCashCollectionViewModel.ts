@@ -42,7 +42,7 @@ export class DailyCashCollectionViewModel extends CommonModel {
     upi: number; // Double
     customer: number; // Double
     totalAmount: number; // Double
-    barCode: string;
+    brCode: string;
     fromDate: Date;
     toDate: Date;
     finyr:string;

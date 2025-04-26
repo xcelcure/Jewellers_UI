@@ -71,7 +71,7 @@ export class TblDashboard extends CommonModel {
     tblGemSale?: TblGemSale[];
     tblSilverSale?: TblSilverSale[];
     tblTopSaleProduct?: TblTopSaleProduct[];
-    tblSaleAnalysis?: TblSaleAnalysis[];
+    tblSaleAnalysi?: TblSaleAnalysis[];
   
     constructor() {
       super();
@@ -79,7 +79,7 @@ export class TblDashboard extends CommonModel {
       this.tblGemSale = [];
       this.tblSilverSale = [];
       this.tblTopSaleProduct = [];
-      this.tblSaleAnalysis = [];
+      this.tblSaleAnalysi = [];
     }
   }
   

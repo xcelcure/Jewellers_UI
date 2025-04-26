@@ -80,12 +80,19 @@ export class MonthlySchemeMaturityComponent implements OnInit,AfterViewInit {
     submit() {
       console.log(this.form.value);
       const monthlySchemeMaturityViewModel = new MonthlySchemeMaturityViewModel();
+      if (this.form.value.branch == "null") {
+        monthlySchemeMaturityViewModel.fromDate = new Date(this.form.value.fromdate);
+        monthlySchemeMaturityViewModel.toDate = new Date(this.form.value.enddate);
+        monthlySchemeMaturityViewModel.pageNumber = this.pageNumber;
+        monthlySchemeMaturityViewModel.pageSize = this.recordPerPage;
+      } else {
+     
       monthlySchemeMaturityViewModel.fromDate = new Date(this.form.value.fromdate);
       monthlySchemeMaturityViewModel.toDate = new Date(this.form.value.enddate);
       monthlySchemeMaturityViewModel.barCode = this.form.value.branch;
       monthlySchemeMaturityViewModel.pageNumber = this.pageNumber;
       monthlySchemeMaturityViewModel.pageSize = this.recordPerPage;
-  
+      }
       this.monthlySchemeMaturityService.getAllmonthlySchemeMaturityReport(monthlySchemeMaturityViewModel).subscribe((res) => {
         this.monthlySchemeMaturityListViewModel = res;
       });
