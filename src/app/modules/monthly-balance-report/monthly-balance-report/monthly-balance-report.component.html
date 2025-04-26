@@ -37,7 +37,7 @@
               <div class="col-3">
                 <div class="form-group">
                   <label for="todate"
-                    >To Date <span class="text-danger"> *</span></label
+                    > Date <span class="text-danger"> *</span></label
                   >
                   <input
                     type="date"
@@ -88,6 +88,7 @@
                     <thead class="border-bottom">
                       <tr>
                         <th>Date</th>
+                        <th>Branch Code</th>
                         <th>OP Bullion</th>
                         <th>OP OG</th>
                         <th>OP OG24</th>
@@ -113,6 +114,7 @@
                     <tbody>
                       <tr *ngFor="let balance of monthlyBalanceReportListViewModel.listMonthlyBalance">
                         <td>{{ balance.date | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{balance.brCode}}</td>
                         <td class="text-right">{{ balance.oP_Bullion }}</td>
                         <td class="text-right">{{ balance.oP_OG }}</td>
                         <td class="text-right">{{ balance.oP_OG24 }}</td>
@@ -262,6 +264,7 @@
         <thead class="border-bottom">
           <tr>
             <th>Date</th>
+            <th>Branch Code </th>
             <th>OP Bullion</th>
             <th>OP OG</th>
             <th>OP OG24</th>
@@ -287,6 +290,7 @@
         <tbody>
           <tr *ngFor="let balance of monthlyBalanceReportListViewModel.listMonthlyBalance">
             <td>{{ balance.date | date: 'dd/MM/yyyy' }}</td>
+            <td>{{balance.brCode}}</td>
             <td>{{ balance.oP_Bullion }}</td>
             <td class="text-right">{{ balance.oP_OG }}</td>
             <td class="text-right">{{ balance.oP_OG24 }}</td>
