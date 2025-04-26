@@ -13,6 +13,8 @@ import { LoginService } from "./service/login.service";
 export class LoginComponent {
   isLoading = false;
   isNotMatch = false;
+  showPassword: boolean = false;
+  passwordValue: string = '';
   constructor(
     private formBuilder: FormBuilder,
     public loginService: LoginService,
@@ -49,5 +51,9 @@ export class LoginComponent {
         this.isLoading = false;
       });
     }
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 }

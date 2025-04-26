@@ -15,8 +15,8 @@ import { CustomerDataviewListModel, CustomerDataviewModel, GemCMTime } from '../
   templateUrl: './customer-data.component.html',
   styleUrls: ['./customer-data.component.css']
 })
-export class CustomerDataComponent implements OnInit , AfterViewInit {
-  ngAfterViewInit() {}
+export class CustomerDataComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit() { }
 
   branchListViewModel = new BranchListViewModel();
   pageNumber: number = 1;
@@ -40,7 +40,7 @@ export class CustomerDataComponent implements OnInit , AfterViewInit {
   constructor(
     public starterService: StarterService,
     private loginService: LoginService,
-    public customerDataService:CustomerDataService,
+    public customerDataService: CustomerDataService,
   ) {
     this.subtitle = "Customer Sales Report";
   }
@@ -82,12 +82,18 @@ export class CustomerDataComponent implements OnInit , AfterViewInit {
   submit() {
     console.log(this.form.value);
     const salesReportViewModel = new CustomerDataviewModel();
-    salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
-    salesReportViewModel.toDate = new Date(this.form.value.enddate);
-    salesReportViewModel.branch = this.form.value.branch;
-    salesReportViewModel.pageNumber = this.pageNumber;
-    salesReportViewModel.pageSize = 0;
-
+    if (this.form.value.branch == "null") {
+      salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+      salesReportViewModel.toDate = new Date(this.form.value.enddate);
+      salesReportViewModel.pageNumber = this.pageNumber;
+      salesReportViewModel.pageSize = this.recordPerPage;
+    } else {
+      salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+      salesReportViewModel.toDate = new Date(this.form.value.enddate);
+      salesReportViewModel.branch = this.form.value.branch;
+      salesReportViewModel.pageNumber = this.pageNumber;
+      salesReportViewModel.pageSize = this.recordPerPage;
+    }
     this.customerDataService.getAllSales(salesReportViewModel).subscribe((res) => {
       this.customerDataviewListModel = res;
     });
@@ -99,7 +105,7 @@ export class CustomerDataComponent implements OnInit , AfterViewInit {
     salesReportViewModel.toDate = new Date(this.form.value.enddate);
     salesReportViewModel.branch = this.form.value.branch;
     salesReportViewModel.pageNumber = this.pageNumber;
-    salesReportViewModel.pageSize = 0;
+    salesReportViewModel.pageSize = this.recordPerPage;
 
     this.customerDataService.getAllSales(salesReportViewModel).subscribe((res) => {
       this.customerDataviewListModel = res;
@@ -132,8 +138,8 @@ export class CustomerDataComponent implements OnInit , AfterViewInit {
     );
     WindowPrt.document.write(
       '<body onload="window.print()">' +
-        printContent.innerHTML +
-        "</body></html>"
+      printContent.innerHTML +
+      "</body></html>"
     );
     WindowPrt.document.close();
     WindowPrt.onafterprint = function () {
@@ -166,20 +172,20 @@ export class CustomerDataComponent implements OnInit , AfterViewInit {
   }
 
 
- get GetTotalAxisCCForView() {
-  return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
-    return acc + curr.taxableAmt;
-  }, 0);
- }
- get GetTotalRate24KtForView() {
-  return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
-    return acc + curr.gstAmt;
-  }, 0);
- }
-get GetTotalRate22KForView() {
-  return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
-    return acc + curr.amount;
-  }, 0);
-}
+  get GetTotalAxisCCForView() {
+    return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
+      return acc + curr.taxableAmt;
+    }, 0);
+  }
+  get GetTotalRate24KtForView() {
+    return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
+      return acc + curr.gstAmt;
+    }, 0);
+  }
+  get GetTotalRate22KForView() {
+    return this.customerDataviewListModel.listCoustomerData.reduce((acc, curr) => {
+      return acc + curr.amount;
+    }, 0);
+  }
 
 }

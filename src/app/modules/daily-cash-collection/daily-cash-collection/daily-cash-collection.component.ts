@@ -81,12 +81,17 @@ export class DailyCashCollectionComponent implements OnInit , AfterViewInit {
     submit() {
       console.log(this.form.value);
       const dailyCashCollectionViewModel = new DailyCashCollectionViewModel();
-      // dailyCashCollectionViewModel.fromDate = new Date(this.form.value.fromdate);
+       if (this.form.value.branch == "null") {
+        dailyCashCollectionViewModel.fromDate = new Date(this.form.value.fromdate);
+        dailyCashCollectionViewModel.toDate = new Date(this.form.value.enddate);
+         dailyCashCollectionViewModel.pageNumber = this.pageNumber;
+         dailyCashCollectionViewModel.pageSize = this.recordPerPage;
+       } else {
       dailyCashCollectionViewModel.toDate = new Date(this.form.value.enddate);
       dailyCashCollectionViewModel.branch = this.form.value.branch;
       dailyCashCollectionViewModel.pageNumber = this.pageNumber;
       dailyCashCollectionViewModel.pageSize = this.recordPerPage;
-  
+       }
       this.dailyCashCollectionViewModelService.getAlldailyCashCollectionReport(dailyCashCollectionViewModel).subscribe((res) => {
         this.dailyCashCollectionListViewModel = res;
       });

@@ -49,7 +49,7 @@ export class DailynotesComponent implements OnInit {
   currentUser: any;
 
   form = new FormGroup({
-    branch: new FormControl(null, Validators.required),
+    branch: new FormControl(null),
     fromdate: new FormControl("", Validators.required),
     enddate: new FormControl("", Validators.required),
     finyr: new FormControl(this.finYear),
@@ -133,15 +133,21 @@ export class DailynotesComponent implements OnInit {
   }
 
   submit() {
+    debugger
     console.log(this.form.value);
-debugger
     const dailyNoteVM = new GemStockViewModel();
+    if (this.form.value.branch == "") {
+      dailyNoteVM.fromDate = new Date(this.form.value.fromdate);
+      dailyNoteVM.finyr = this.form.value.finyr;
+      dailyNoteVM.pageNumber = this.pageNumber;
+      dailyNoteVM.pageSize = this.recordPerPage;
+    } else {
     dailyNoteVM.fromDate = new Date(this.form.value.fromdate);
     dailyNoteVM.finyr = this.form.value.finyr;
     dailyNoteVM.branch = this.form.value.branch;
     dailyNoteVM.pageNumber = this.pageNumber;
     dailyNoteVM.pageSize = this.recordPerPage;
-    // dailyNoteVM.pageSize=10
+    }
     this.DailynotesService.getAllgemstock(dailyNoteVM).subscribe((res) => {
       this.gemStockListViewModel = res;
     });

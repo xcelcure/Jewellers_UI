@@ -64,7 +64,7 @@ export class MonthlyEarningComponent implements OnInit {
       this.branch = res.branch;
       //this.initializeLastFiveMonth(res.finyr, res.branch);
     });
-
+debugger
     this.dashboardService.dashbordDataData$.subscribe(data=> {
       const months: string[] = [];
       let month = 1;
@@ -82,14 +82,17 @@ export class MonthlyEarningComponent implements OnInit {
         const silverAmounts: number[] = [];
         months.map((month) => {
           // for lolg
-          const fonund = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund = Array.isArray(data.tblSaleAnalysi)
+          ? data.tblSaleAnalysi.filter((i) => i.saleOfMonth === month)
+          : [];
           if (fonund.length > 0) {
             goldAmounts.push(fonund.reduce((a, b) => a + b.card+b.cash+b.ddChq+b.gvoucher+b.upi, 0));
           } else {
             goldAmounts.push(0);
           }
           // gor gem
-          const fonund2 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund2 = Array.isArray(data.tblSaleAnalysi)
+          ? data.tblSaleAnalysi.filter((i) => i.saleOfMonth == month) :[];
           if (fonund2.length > 0) {
             gemAmounts.push(fonund2.reduce((a, b) => a + b.card +b.card +b.ddChq + b.gvoucher +b.upi, 0));
           } else {
@@ -97,7 +100,8 @@ export class MonthlyEarningComponent implements OnInit {
           }
 
           // gor silver
-          const fonund3 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund3 = Array.isArray(data.tblSaleAnalysi)
+          ? data.tblSaleAnalysi.filter((i) => i.saleOfMonth == month) : [];
           if (fonund3.length > 0) {
             silverAmounts.push(fonund3.reduce((a, b) => a + b.cash+b.card+b.ddChq+b.ddChq+b.gvoucher+b.upi, 0));
           } else {
@@ -145,14 +149,14 @@ export class MonthlyEarningComponent implements OnInit {
         const silverAmounts: number[] = [];
         months.map((month) => {
           // for lolg
-          const fonund = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund = data.tblSaleAnalysi.filter((i) => i.saleOfMonth == month);
           if (fonund.length > 0) {
             goldAmounts.push(fonund.reduce((a, b) => a + b.card+b.cash+b.ddChq+b.gvoucher+b.upi, 0));
           } else {
             goldAmounts.push(0);
           }
           // gor gem
-          const fonund2 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund2 = data.tblSaleAnalysi.filter((i) => i.saleOfMonth == month);
           if (fonund2.length > 0) {
             gemAmounts.push(fonund2.reduce((a, b) => a + b.card +b.card +b.ddChq + b.gvoucher +b.upi, 0));
           } else {
@@ -160,7 +164,7 @@ export class MonthlyEarningComponent implements OnInit {
           }
 
           // gor silver
-          const fonund3 = data.tblSaleAnalysis.filter((i) => i.saleOfMonth == month);
+          const fonund3 = data.tblSaleAnalysi.filter((i) => i.saleOfMonth == month);
           if (fonund3.length > 0) {
             silverAmounts.push(fonund3.reduce((a, b) => a + b.cash+b.card+b.ddChq+b.ddChq+b.gvoucher+b.upi, 0));
           } else {

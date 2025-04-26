@@ -38,6 +38,7 @@ export class TopBranchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    debugger
     this.subscribe = this.DashboardService.dashBoardFilter$.subscribe(
       (data) => {
         this.month = data.month;
@@ -68,9 +69,10 @@ export class TopBranchComponent implements OnInit, OnDestroy {
   }
 
   get total(): number {
-    if (!this.TblDashboard.tblSaleAnalysis) return 0;
+    debugger
+    if (!this.TblDashboard.tblSaleAnalysi) return 0;
 
-    return this.TblDashboard.tblSaleAnalysis.reduce((sum, sale) => {
+    return this.TblDashboard.tblSaleAnalysi.reduce((sum, sale) => {
       return (
         sum +
         (sale.cash || 0) +

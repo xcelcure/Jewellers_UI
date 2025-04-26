@@ -122,12 +122,18 @@ ngAfterViewInit() {}
       console.log(this.form.value);
   debugger
       const dailyNoteVM = new BranchStockViewModel();
+      if (this.form.value.branch == "null") {
+        dailyNoteVM.toDate = new Date(this.form.value.enddate);
+      dailyNoteVM.finyr = this.form.value.finyr;
+      dailyNoteVM.pageNumber = this.pageNumber;
+      dailyNoteVM.pageSize = this.recordPerPage;
+      } else {
       dailyNoteVM.toDate = new Date(this.form.value.enddate);
       dailyNoteVM.finyr = this.form.value.finyr;
       dailyNoteVM.branch = this.form.value.branch;
       dailyNoteVM.pageNumber = this.pageNumber;
       dailyNoteVM.pageSize = this.recordPerPage;
-      // dailyNoteVM.pageSize=10
+        }
       this.btanchStockService.getAllbranchstock(dailyNoteVM).subscribe((res) => {
         this.branchStockListViewModel = res;
       });

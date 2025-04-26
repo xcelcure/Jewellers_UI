@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'GemStock Report',
+      title: 'Gem Stock Report',
       urls: [
         { title: 'Reports', url: '/' },
         { title: 'GemStock Report' }

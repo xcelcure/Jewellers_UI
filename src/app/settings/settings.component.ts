@@ -47,7 +47,7 @@ export class settingsComponent implements OnInit {
       }
       this.form.get("brCode").updateValueAndValidity();
     });
-    this.allUsers();
+    // this.allUsers();
   }
 
   getAllBranch() {

@@ -81,16 +81,23 @@ export class StarterComponent implements AfterViewInit {
   submit() {
     console.log(this.form.value);
     const salesReportViewModel = new SalesReportViewModel();
+    if (this.form.value.branch == "null") {
+      salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
+      salesReportViewModel.toDate = new Date(this.form.value.enddate);
+      salesReportViewModel.pageNumber = this.pageNumber;
+      salesReportViewModel.pageSize = this.recordPerPage;
+    } else {
     salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
     salesReportViewModel.toDate = new Date(this.form.value.enddate);
     salesReportViewModel.barCode = this.form.value.branch;
     salesReportViewModel.pageNumber = this.pageNumber;
     salesReportViewModel.pageSize = this.recordPerPage;
+    }
     this.starterService.getAllSales(salesReportViewModel).subscribe((res) => {
       this.salesListReportViewModel = res;
     });
   }
-
+  
   getAllSaleDataforPrint() {
     const salesReportViewModel = new SalesReportViewModel();
     salesReportViewModel.fromDate = new Date(this.form.value.fromdate);
