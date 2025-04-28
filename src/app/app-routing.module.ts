@@ -42,7 +42,7 @@ export const routes: Routes = [
       },
 
       {
-        path: "frontPosition",
+        path: "fundPosition",
         loadChildren: () =>
           import("./modules/front-position/front-position.module").then(
             (m) => m.FrontPositionModule

@@ -68,13 +68,15 @@ export class MonthlyBalanceReportComponent implements OnInit {
     });
 
     this.getAllBranch();
-    this.form
-      .get("enddate")
-      .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
+    // this.form
+    //   .get("enddate")
+    //   .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
     this.form
       .get("fromdate")
       .setValue(formatDate(firstDay, "yyyy-MM-dd", "en-US"));
-
+      this.form
+      .get("enddate")
+      .setValue(this.getTodayDate());
      this.getAllBranch();
 
     this.dashboardService
@@ -108,6 +110,11 @@ export class MonthlyBalanceReportComponent implements OnInit {
     });
   }
 
+
+  getTodayDate(): string {
+    const today = new Date();
+    return today.toISOString().substring(0, 10); // format: 'YYYY-MM-DD'
+  }
  
   getAllBranch() {
     let branchViewModel = new BranchViewModel();

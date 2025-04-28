@@ -38,7 +38,7 @@ export class FrontPositionComponent implements OnInit ,AfterViewInit {
     public starterService: StarterService,
     private loginService: LoginService
   ) {
-    this.subtitle = "Front Position Reports";
+    this.subtitle = "Fund Position Reports";
   }
   ngOnInit() {
     const date = new Date(),

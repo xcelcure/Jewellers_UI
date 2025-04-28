@@ -164,8 +164,8 @@ export const ROUTES: RouteInfo[] = [
         path: null,
         submenu: [
           {
-            path: "/frontPosition",
-            title: "Front Position",
+            path: "/fundPosition",
+            title: "Fund Position",
             icon: "mdi mdi-note-text",
             class: "",
             extralink: false,
