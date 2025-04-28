@@ -82,7 +82,7 @@ export class DailynotesComponent implements OnInit {
       .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
     this.form
       .get("fromdate")
-      .setValue(formatDate(firstDay, "yyyy-MM-dd", "en-US"));
+      .setValue(this.getTodayDate());
 
      this.getAllBranch();
 
@@ -117,7 +117,13 @@ export class DailynotesComponent implements OnInit {
     });
   }
 
- 
+  getTodayDate(): string {
+    const today = new Date();
+    return today.toISOString().substring(0, 10); // format: 'YYYY-MM-DD'
+  }
+
+
+
   getAllBranch() {
     let branchViewModel = new BranchViewModel();
     this.starterService.getAllBarnch(branchViewModel).subscribe((res) => {

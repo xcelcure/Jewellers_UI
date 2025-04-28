@@ -57,12 +57,20 @@ export class DailyCashCollectionComponent implements OnInit , AfterViewInit {
         this.currentUser = user;
       });
   
-      this.form
-        .get("enddate")
-        .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
+      // this.form
+      //   .get("enddate")
+      //   .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
       this.form
         .get("fromdate")
         .setValue(formatDate(firstDay, "yyyy-MM-dd", "en-US"));
+        this.form
+        .get("enddate")
+        .setValue(this.getTodayDate());
+    }
+
+    getTodayDate(): string {
+      const today = new Date();
+      return today.toISOString().substring(0, 10); // format: 'YYYY-MM-DD'
     }
   
     getAllBranch() {

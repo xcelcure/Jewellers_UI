@@ -10,10 +10,10 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Front Position Report',
+      title: 'Fund Position Report',
       urls: [
         { title: 'Reports', url: '/' },
-        { title: 'Front Position Report' }
+        { title: 'Fund Position Report' }
       ]
     },
     component: FrontPositionComponent

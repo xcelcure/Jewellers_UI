@@ -128,8 +128,8 @@
                 <td>{{ customer.custName }}</td>
                 <td>{{ customer.custAddress }}</td>
                 <td>{{ customer.phoneNo }}</td>
-                <td>{{ customer.dob && customer.dob !== '1900-01-01' ? (customer.dob | date: 'dd/MM/yyyy') : 'NA' }}</td>
-                <td>{{ customer.doa && customer.doa !== '1900-01-01' ? (customer.doa | date: 'dd/MM/yyyy') : 'NA' }}</td>
+                <td>{{ customer.dob && customer.dob !== '1900-01-01T00:00:00' ? (customer.dob | date: 'dd/MM/yyyy') : 'NA' }}</td>
+                <td>{{ customer.doa && customer.doa !== '1900-01-01T00:00:00'  ? (customer.doa | date: 'dd/MM/yyyy') : 'NA' }}</td>
                 <td class="text-right">{{ customer.product }}</td>
                 <td class="text-right">{{ customer.taxableAmt | number: '1.2-2' }}</td>
                 <td class="text-right">{{ customer.gstAmt | number: '1.2-2' }}</td>
@@ -261,8 +261,8 @@
         <td>{{ customer.custAddress }}</td>
         <td>{{ customer.phoneNo }}</td>
         <td>{{ customer.product }}</td>
-        <td>{{ customer.dob && customer.dob !== '1900-01-01' ? (customer.dob | date: 'dd/MM/yyyy') : 'NA' }}</td>
-        <td>{{ customer.doa && customer.doa !== '1900-01-01' ? (customer.doa | date: 'dd/MM/yyyy') : 'NA' }}</td>
+        <td>{{ customer.dob && customer.dob !== '1900-01-01T00:00:00'  ? (customer.dob | date: 'dd/MM/yyyy') : 'NA' }}</td>
+        <td>{{ customer.doa && customer.doa !== '1900-01-01T00:00:00'  ? (customer.doa | date: 'dd/MM/yyyy') : 'NA' }}</td>
         <td class="text-right">{{ customer.taxableAmt | number: '1.2-2' }}</td>
         <td class="text-right">{{ customer.gstAmt | number: '1.2-2' }}</td>
         <td class="text-right">{{ customer.amount | number: '1.2-2' }}</td>
