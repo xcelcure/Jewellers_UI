@@ -172,7 +172,7 @@ export const ROUTES: RouteInfo[] = [
             submenu: [],
           },
           {
-            path: null,
+            path: "/smithPosition",
             title: "Smith Position Report",
             icon: "mdi mdi-note-text",
             class: "",
@@ -180,7 +180,7 @@ export const ROUTES: RouteInfo[] = [
             submenu: [],
           },
           {
-            path: null,
+            path: "/dailynotes",
             title: "Daliy Note Report",
             icon: "mdi mdi-note-text",
             class: "",

@@ -57,9 +57,12 @@ export class StarterComponent implements AfterViewInit {
       this.currentUser = user;
     });
 
+    // this.form
+    //   .get("enddate")
+    //   .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
     this.form
-      .get("enddate")
-      .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
+    .get("enddate")
+    .setValue(this.getTodayDate());
     this.form
       .get("fromdate")
       .setValue(formatDate(firstDay, "yyyy-MM-dd", "en-US"));
@@ -72,6 +75,11 @@ export class StarterComponent implements AfterViewInit {
         this.branchListViewModel = res;
       }
     });
+  }
+  
+  getTodayDate(): string {
+    const today = new Date();
+    return today.toISOString().substring(0, 10); // format: 'YYYY-MM-DD'
   }
 
   get f() {

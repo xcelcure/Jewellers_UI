@@ -77,6 +77,23 @@ export const routes: Routes = [
             (m) => m.DailyCashCollectionModule
           ),
       },
+
+      {
+        path: "dailynotes",
+        loadChildren: () =>
+          import("./modules/misdailynotes/misdailynotes.module").then(
+            (m) => m.MisdailynotesModule
+          ),
+      },
+
+      {
+        path: "smithPosition",
+        loadChildren: () =>
+          import("./modules/smith-position/smith-position.module").then(
+            (m) => m.SmithPositionModule
+          ),
+      },
+
       {
         path: "monthlySchemeMaturity",
         loadChildren: () =>
