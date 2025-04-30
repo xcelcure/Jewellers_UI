@@ -119,7 +119,14 @@ export class MisdailynotesComponent implements OnInit {
     const today = new Date();
     return today.toISOString().substring(0, 10); // format: 'YYYY-MM-DD'
   }
- 
+  onPrint() {
+    this.clickDwnld = false;
+    this.getAllSaleDataforPrint();
+  }
+  onDownload() {
+    this.clickDwnld = true;
+     this.getAllSaleDataforPrint();
+  }
   getAllBranch() {
     let branchViewModel = new BranchViewModel();
     this.starterService.getAllBarnch(branchViewModel).subscribe((res) => {
@@ -153,7 +160,37 @@ export class MisdailynotesComponent implements OnInit {
       this.dailyNoteOutput = res;
     });
   }
-
+  getAllSaleDataforPrint(){
+    const dailyNoteInput = new DailyNoteInput();
+    
+    if (this.form.value.branch == "" || this.form.value.branch == "null") {
+      dailyNoteInput.date = new Date(this.form.value.enddate);
+      dailyNoteInput.financialYear = this.form.value.finyr;
+      dailyNoteInput.pageNumber = this.pageNumber;
+      dailyNoteInput.pageSize = this.recordPerPage;
+    } else {
+      dailyNoteInput.date = new Date(this.form.value.enddate);
+      dailyNoteInput.financialYear = this.form.value.finyr;
+      dailyNoteInput.branchCode = this.form.value.branch;
+      dailyNoteInput.pageNumber = this.pageNumber;
+      dailyNoteInput.pageSize = this.recordPerPage;
+    }
+    this.misdailynotesService.getDailyNote(dailyNoteInput).subscribe((res) => {
+      this.dailyNoteOutput = res;
+   
+         if (!this.clickDwnld) {
+           setTimeout(() => {
+             this.printData();
+           }, 100);
+         } else {
+           setTimeout(() => {
+             this.download();
+           }, 100);
+         }
+   
+         //console.log(this.salesListReportViewModelforPrint);
+       });
+  }
 
   printData() {
     const printContent = document.getElementById("printDIV");
