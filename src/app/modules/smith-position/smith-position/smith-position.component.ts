@@ -134,7 +134,46 @@ export class SmithPositionComponent  implements OnInit {
   get f() {
     return this.form.controls;
   }
+  onPrint() {
+    this.clickDwnld = false;
+    this.getAllSaleDataforPrint();
+  }
+  onDownload() {
+    this.clickDwnld = true;
+    this.getAllSaleDataforPrint();
+  }
 
+  getAllSaleDataforPrint(){
+    const smithSummaryInput = new SmithSummaryInput();
+    
+    if (this.form.value.branch == "null" || this.form.value.branch == "") {
+      smithSummaryInput.fromDate = new Date(this.form.value.fromdate);
+      smithSummaryInput.toDate = new Date(this.form.value.enddate);
+      smithSummaryInput.pageNumber = this.pageNumber;
+      smithSummaryInput.pageSize = this.recordPerPage;
+    } else {
+      smithSummaryInput.fromDate = new Date(this.form.value.fromdate);
+      smithSummaryInput.toDate = new Date(this.form.value.enddate);
+      smithSummaryInput.branchCode = this.form.value.branch;
+      smithSummaryInput.pageNumber = this.pageNumber;
+      smithSummaryInput.pageSize = this.recordPerPage;
+    }
+    this.smithPositionService.getSmithSummary(smithSummaryInput).subscribe((res) => {
+      this.smithSummaryOutput = res;
+      
+         if (!this.clickDwnld) {
+           setTimeout(() => {
+             this.printData();
+           }, 100);
+         } else {
+           setTimeout(() => {
+             this.download();
+           }, 100);
+         }
+   
+         //console.log(this.salesListReportViewModelforPrint);
+       });
+  }
   submit() {
     console.log(this.form.value);
     const smithSummaryInput = new SmithSummaryInput();
