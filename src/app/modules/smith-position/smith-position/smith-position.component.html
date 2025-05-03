@@ -25,9 +25,40 @@
               </div>
               <div class="col-3">
                 <div class="form-group">
-                  <label for="todate">Date <span class="text-danger"> *</span></label>
-                  <input type="date" class="form-control form-control-sm" formControlName="enddate" id="todate" />
-                  <div *ngIf="f.fromdate.touched && f.fromdate.invalid" class="alert alert-danger">
+                  <label for="fromdate"
+                    >From Date <span class="text-danger"> *</span></label
+                  >
+                  <input
+                    type="date"
+                    class="form-control form-control-sm"
+                    formControlName="fromdate"
+                    id="fromdate"
+                  />
+                  <div
+                    *ngIf="f.fromdate.touched && f.fromdate.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="f.fromdate.errors.required">
+                      From Date is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="todate"
+                    >To Date <span class="text-danger"> *</span></label
+                  >
+                  <input
+                    type="date"
+                    class="form-control form-control-sm"
+                    formControlName="enddate"
+                    id="todate"
+                  />
+                  <div
+                    *ngIf="f.fromdate.touched && f.fromdate.invalid"
+                    class="alert alert-danger"
+                  >
                     <div *ngIf="f.fromdate.errors.required">
                       From Date is required.
                     </div>
