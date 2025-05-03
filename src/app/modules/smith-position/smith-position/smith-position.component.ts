@@ -74,15 +74,15 @@ export class SmithPositionComponent  implements OnInit {
     });
 
     this.getAllBranch();
-    // this.form
-    //   .get("enddate")
-    //   .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
+    this.form
+      .get("enddate")
+      .setValue(formatDate(lastDay, "yyyy-MM-dd", "en-US"));
     this.form
       .get("fromdate")
       .setValue(formatDate(firstDay, "yyyy-MM-dd", "en-US"));
-      this.form
-      .get("enddate")
-      .setValue(this.getTodayDate());
+      // this.form
+      // .get("enddate")
+      // .setValue(this.getTodayDate());
      this.getAllBranch();
 
     this.dashboardService
