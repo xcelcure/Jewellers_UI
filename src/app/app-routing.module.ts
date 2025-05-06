@@ -95,6 +95,14 @@ export const routes: Routes = [
       },
 
       {
+        path: "sundryCreditor",
+        loadChildren: () =>
+          import("./modules/sundry-creditors/sundry-creditors.module").then(
+            (m) => m.SundryCreditorsModule
+          ),
+      },
+      
+      {
         path: "monthlySchemeMaturity",
         loadChildren: () =>
           import("./modules/monthly-scheme-maturity/monthly-scheme-maturity.module").then(

@@ -147,7 +147,7 @@ export const ROUTES: RouteInfo[] = [
             submenu: [],
           },
           {
-            path: null,
+            path: "/sundryCreditor",
             title: "Sundry Creditors Report",
             icon: "mdi mdi-note-text",
             class: "",

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { DailyNoteInput, DailyNoteOutput } from '../misdailynotes/misdailynotes/dailyNote';
 import { BranchViewModel, BranchListViewModel } from '../starter/model/branchModel';
 import { SmithSummaryInput } from './smithSummary';
+import { CreditorsBalanceInputModel, CreditorsBalanceLVModel } from '../sundry-creditors/creditorsBalanceModel';
 export const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -24,6 +25,10 @@ export class SmithPositionService {
 getSmithSummary( smithSummaryInput: SmithSummaryInput ) {
   const url = this.apiUrl+"api/SalesReportContoller/GetSmithSummaryData";
   return this.http.post<DailyNoteOutput>(url,smithSummaryInput,httpOptions);
+}
+getSundayCreditor( creditorsBalanceInputModel: CreditorsBalanceInputModel ) {
+  const url = this.apiUrl+"api/SalesReportContoller/GetCreditorsBalanceData";
+  return this.http.post<CreditorsBalanceLVModel>(url,creditorsBalanceInputModel,httpOptions);
 }
 
 }
